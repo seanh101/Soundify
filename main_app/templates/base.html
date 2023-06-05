@@ -29,7 +29,7 @@
             <div class="nav-links-container">
                 {% if user.is_authenticated %}
                 <a href="{% url 'playlists_index' %}">View All Playlists</a>
-
+                <a href="{% url 'playlist_create' %}">Add New Playlist</a>
                 <a class="right" href="{% url 'about' %}">About</a>
                 <a class="right" href="{% url 'logout' %}">Log Out</a>
                 {% else %}
