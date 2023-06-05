@@ -1,0 +1,39 @@
+{% load static %}
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Soundify</title>
+    <link rel="stylesheet" type="text/css" href="{% static 'css/style.css' %}">
+</head>
+<body>
+    <header>
+        <nav>
+            <div>
+                <ul>
+                    <li><a href="{% url 'home' %}"</a>Soundify</li>
+                </ul>
+                <ul>
+                    {% if user.is_authenticated %}
+                    <li><a href="{% url 'about' %}">About</a></li>
+                    <li><a href="{% url 'logout' %}">Log Out</a></li>
+                  {% else %}
+                    <li><a href="{% url 'signup' %}">Sign Up</a></li>                    
+                    <li><a href="{% url 'login' %}">Log In</a></li>                    
+                {% endif %}
+                </ul>
+            </div>
+        </nav>
+    </header>
+    <main>
+        {% block content %}
+        {% endblock %}
+    </main>
+  	<footer>
+       <div>All Rights Reserved, &copy; 2023 Soundify.com &nbsp;</div>
+    </footer>
+</body>
+</html>
