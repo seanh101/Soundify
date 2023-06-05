@@ -1,7 +1,52 @@
 {% extends 'base.html' %}
 {% block content %}
+<div class="side-nav">
+    <span>My Playlists
+        <a href="#">
+            +
+        </a>
+    </span>
+    <a href="#">
+        Playlist 1
+    </a>
 
-<h1>{{ playlist.name }} Details</h1>
+    <a href="#">
+        Rockin some major tunage
+    </a>
+
+</div>
+
+<div class="app-body">
+    <section class="my-playlists">
+        <h1>My Playlists</h1>
+        <div class="pl-container">
+            <div class="pl-card">
+                <div class="img"></div>
+                <div>
+                    <h2 class="pl-card-title">{{ playlist.name }}</h2>
+                </div>
+                <div class="pl-card-author-details-container">
+                    <div class="profile-img"></div>
+                    <span class="pl-card-author">
+                        Author
+                    </span>
+                    <span class="pl-card-details">
+                        25 songs, 2 hours 3 mins
+                    </span>
+                </div>
+                <div>
+                    <p>
+                        Lorem ipsum dolor sit amet consectetur. Ipsum risus dictum a id ac. Dui eleifend eget
+                        pharetra sollicitudin integer quam quis. Est purus mi. Lorem ipsum dolor sit amet. Pharetra
+                        sollicitudin integer quam quis. Est purus mi. Lorem ipsum dolor sit amet
+                    </p>
+                </div>
+            </div>
+        </div>
+    </section>
+</div>
+
+<h1>{{ playlist.name }}</h1>
 
 {{ playlist.description }}
 {{ playlist.is_public }}

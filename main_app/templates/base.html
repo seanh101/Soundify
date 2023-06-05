@@ -2,6 +2,7 @@
 
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -9,32 +10,41 @@
     <title>Soundify</title>
     <link rel="stylesheet" type="text/css" href="{% static 'css/style.css' %}">
 </head>
+
 <body>
     <header>
-        <nav>
-            <div>
-                <ul>
-                    <li><a href="{% url 'home' %}"</a>Soundify</li>
-                </ul>
-                <ul>
-                    {% if user.is_authenticated %}
-                    <li><a href="{% url 'playlists_index' %}">View All Playlists</a></li>
-                    <li><a href="{% url 'about' %}">About</a></li>
-                    <li><a href="{% url 'logout' %}">Log Out</a></li>
-                  {% else %}
-                    <li><a href="{% url 'signup' %}">Sign Up</a></li>                    
-                    <li><a href="{% url 'login' %}">Log In</a></li>                    
-                {% endif %}
-                </ul>
+        <nav class="top-nav">
+
+            <div class="logo-container">
+                <a href="{% url 'home' %}">
+                    <img>
+                    Soundify
+                </a>
             </div>
+
+
+            <div class="nav-links-container">
+                {% if user.is_authenticated %}
+                <a href="{% url 'playlists_index' %}">View All Playlists</a>
+
+                <a class="right" href="{% url 'about' %}">About</a>
+                <a class="right" href="{% url 'logout' %}">Log Out</a>
+                {% else %}
+                <a class="right" href="{% url 'about' %}">Search</a>
+                <a class="right" href="{% url 'signup' %}">Sign Up</a>
+                <a class="right" href="{% url 'login' %}">Log In</a>
+                {% endif %}
+            </div>
+
         </nav>
     </header>
     <main>
         {% block content %}
         {% endblock %}
     </main>
-  	<footer>
-       <div>All Rights Reserved, &copy; 2023 Soundify.com &nbsp;</div>
+    <footer>
+        <div>All Rights Reserved, &copy; 2023 Soundify.com &nbsp;</div>
     </footer>
 </body>
+
 </html>
