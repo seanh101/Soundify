@@ -3,4 +3,14 @@
 
 <h1>Playlists</h1>
 
+{% for playlist in playlists %}
+    <a href="{% url 'playlists_detail' playlist.id %}"></a>
+
+    Name: {{ playlist.name }}
+    <p>Description: {{ playlist.description }}</p>
+    <p>Public?: {{ playlist.is_public }}</p>
+    <p>Total Duration: {{ playlist.duration }}</p>
+    <p>Songs: {{ playlist.songs.count }}</p>
+
+    {% endfor %}
 {% endblock %}

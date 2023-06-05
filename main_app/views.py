@@ -44,10 +44,10 @@ def signup(request):
 
 class PlaylistCreate(CreateView):
     model = Playlist
-    fields = ['name', 'description', 'is_public', 'songs']
+    fields = ['name', 'description', 'is_public']
 
     def form_valid(self, form):
-        form.instance.user = self.reqeust.user
+        form.instance.user = self.request.user
         return super().form_valid(form)
     
 class PlaylistUpdate(UpdateView):
