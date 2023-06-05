@@ -9,6 +9,10 @@
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
     <title>Soundify</title>
     <link rel="stylesheet" type="text/css" href="{% static 'css/style.css' %}">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@100;200;300;400;500;600;700;800;900&display=swap"
+        rel="stylesheet">
 </head>
 
 <body>
@@ -17,8 +21,7 @@
 
             <div class="logo-container">
                 <a href="{% url 'home' %}">
-                    <img>
-                    Soundify
+                    <img class="logo" src="{% static 'images/SoundifyLogo.svg' %}">
                 </a>
             </div>
 
@@ -39,8 +42,11 @@
         </nav>
     </header>
     <main>
-        {% block content %}
-        {% endblock %}
+        <div class="app-body">
+
+            {% block content %}
+            {% endblock %}
+        </div>
     </main>
     <footer>
         <div>All Rights Reserved, &copy; 2023 Soundify.com &nbsp;</div>
