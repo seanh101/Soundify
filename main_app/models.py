@@ -21,8 +21,8 @@ class Playlist(models.Model):
     name = models.CharField(max_length=100)
     description = models.CharField(max_length=200)
     is_public = models.BooleanField(default=False)
-    songs = models.ManyToManyField(Song) 
-    duration = models.IntegerField()
+    songs = models.ManyToManyField(Song, blank=True) 
+    duration = models.IntegerField(null=True, blank=True)
     user = models.ForeignKey(User, on_delete=models.CASCADE)
 
     def __str__(self):
