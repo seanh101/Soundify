@@ -3,6 +3,8 @@
 
 <h1>Log In</h1>
 
+<h1 class="marley">MARLEY</h1>
+
 <form action="{% url 'login' %}" method="POST">
   {% csrf_token %}
   {{ form.as_p }}
