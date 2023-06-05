@@ -1,0 +1,19 @@
+{% extends 'base.html' %}
+{% block content %}
+
+<h1>{{ playlist.name }} Details</h1>
+
+{{ playlist.description }}
+{{ playlist.is_public }}
+{{ playlist.duration }}
+{{ playlist.user }}
+
+{% if playlist.songs.count %}
+{% for song in playlist.songs.all %}
+{{ song.name }}
+{% endfor %}
+{% else %}
+<h5>No songs added yet</h5>
+{% endif %}
+
+{% endblock %}
