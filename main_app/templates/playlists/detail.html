@@ -19,6 +19,7 @@
 <section class="my-playlists">
     <h1>My Playlists</h1>
     <div class="pl-container">
+
         <div class="pl-card">
             <div class="img"></div>
             <div>
@@ -27,29 +28,28 @@
             <div class="pl-card-author-details-container">
                 <div class="profile-img"></div>
                 <span class="pl-card-author">
-                    Author
+                    {{ playlist.user.username }}
                 </span>
                 <span class="pl-card-details">
-                    25 songs, 2 hours 3 mins
+                    {{ playlist.songs.count }} songs, {{ playlist.duration }} ms
                 </span>
             </div>
             <div>
                 <p>
-                    Lorem ipsum dolor sit amet consectetur. Ipsum risus dictum a id ac. Dui eleifend eget
-                    pharetra sollicitudin integer quam quis. Est purus mi. Lorem ipsum dolor sit amet. Pharetra
-                    sollicitudin integer quam quis. Est purus mi. Lorem ipsum dolor sit amet
+                    {{ playlist.description }}
                 </p>
             </div>
         </div>
+
     </div>
 </section>
 
 <h1>{{ playlist.name }}</h1>
 
-{{ playlist.description }}
+<!-- {{ playlist.description }}
 {{ playlist.is_public }}
 {{ playlist.duration }}
-{{ playlist.user }}
+{{ playlist.user }} -->
 
 {% if playlist.songs.count %}
 {% for song in playlist.songs.all %}
