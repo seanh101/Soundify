@@ -8,7 +8,8 @@ urlpatterns = [
     path('playlists/<int:playlist_id>/', views.playlists_detail, name='playlists_detail'),
     path('playlists/create/', views.PlaylistCreate.as_view(), name='playlist_create'),
     path('playlists/<int:pk>/update', views.PlaylistUpdate.as_view(), name='playlists_update'),
-    
+    path('songs/', views.songs_index, name='songs_index'),
+    path('songs/<int:song_id>/', views.songs_detail, name='songs_detail'),
    
     path('accounts/signup/', views.signup, name='signup'),
     
