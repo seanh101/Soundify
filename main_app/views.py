@@ -21,12 +21,26 @@ def playlists_index(request):
         'playlists': playlists
     })
 
+@login_required
 def playlists_detail(request, playlist_id):
     playlist = Playlist.objects.get(id=playlist_id)
     return render(request, 'playlists/detail.html', {
         'playlist': playlist
     })
 
+@login_required
+def songs_index(request):
+    songs = Song.objects.all()
+    return render(request, 'songs/index.html', {
+        'songs': songs
+    })
+
+@login_required
+def songs_detail(request, song_id):
+    song = Song.objects.get(id=song_id)
+    return render(request, 'songs/detail.html', {
+        'song': song
+    })
 
 def signup(request):
     error_message = ''
@@ -42,7 +56,7 @@ def signup(request):
     context = {'form': form, 'error_message': error_message}
     return render(request, 'registration/signup.html', context)
 
-class PlaylistCreate(CreateView):
+class PlaylistCreate(LoginRequiredMixin, CreateView):
     model = Playlist
     fields = ['name', 'description', 'is_public']
 
@@ -50,16 +64,29 @@ class PlaylistCreate(CreateView):
         form.instance.user = self.request.user
         return super().form_valid(form)
     
-class PlaylistUpdate(UpdateView):
+class PlaylistUpdate(LoginRequiredMixin, UpdateView):
     model = Playlist
     fields = ['name', 'description', 'is_public']
 
-class PlaylistDelete(DeleteView):
+class PlaylistDelete(LoginRequiredMixin, DeleteView):
      model = Playlist
      success_url = '/playlists'
 
-def create_song(request, playlist_id):
-    pass
+class SongCreate(LoginRequiredMixin, CreateView):
+    model = Song
+    fields = '__all__'
+
+    def form_valid(self, form):
+        form.instance.user = self.request.user
+        return super().form_valid(form)
+
+class SongUpdate(LoginRequiredMixin, UpdateView):
+    model = Song
+    fields = '__all__'
+
+class SongDelete(LoginRequiredMixin, DeleteView):
+    model = Song
+    success_url = '/songs'
 
 def assoc_song(reqeust, playlist_id, song_id):
     pass

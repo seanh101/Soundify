@@ -9,7 +9,7 @@ class Song(models.Model):
     genre = models.CharField(max_length=50)
     release_date = models.DateField('Release Date')
     album = models.CharField(max_length=100)
-    duration = models.IntegerField()
+    duration = models.IntegerField('Duration (ms)')
 
     def __str__(self):
         return self.name
