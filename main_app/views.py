@@ -118,5 +118,7 @@ def song_search_page(request):
 def song_search(request):
     query_string = request.GET.get('query')
     sp = spotipy.Spotify(auth_manager=SpotifyOAuth(client_id=os.environ['CLIENT_ID'], client_secret=os.environ['SECRET_KEY'], redirect_uri='http://localhost:8000/playlists'))
-    results = sp.search(q=query_string, type='track', limit=10)
-    return HttpResponse(f"Search results: {results}")
+    results = sp.search(q=query_string, type='track', limit=50)
+    return render(request, 'songs/search_results.html', {
+        'results': results
+    })
