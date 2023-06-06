@@ -59,4 +59,9 @@
 <h5>No songs added yet</h5>
 {% endif %}
 
+
+<a href="{% url 'playlists_update' playlist.id %}">Edit</a>
+<a href="{% url 'playlists_delete' playlist.id %}">Delete</a>
+
+
 {% endblock %}
