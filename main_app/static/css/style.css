@@ -270,8 +270,8 @@ h1 {
     Read more: https://drafts.csswg.org/css-inline-3/#leading-trim
     */
 
-    leading-trim: both;
-    text-edge: cap;
+    /* leading-trim: both; */
+    /* text-edge: cap; */
 }
 
 .pl-card-author-details-container {
