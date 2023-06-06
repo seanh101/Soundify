@@ -23,7 +23,6 @@
     overflow-y: hidden;
     margin: auto;
     position: relative;
-    right: 9.2%;
 }
 
 .login-input-field-container {
@@ -97,7 +96,7 @@ footer {
     overflow-y: hidden;
     margin: auto;
     position: relative;
-    right: 9.2%;
+    /* right: 9.2%; */
 }
 
 .signup-title-div {
