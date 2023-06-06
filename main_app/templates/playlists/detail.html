@@ -31,13 +31,15 @@
                 <h2 class="pl-info-title">{{ playlist.name }}</h2>
             </div>
             <div class="pl-info-edit">
-                <span></span>
-                <span></span>
-                <span></span>
+                    <span></span>
+                    <span></span>
+                    <span></span>
             </div>
             <div class="pl-info-edit-popup">
-                <a href="{% url 'playlists_update' playlist.id %}">Edit</a>
-                <a href="{% url 'playlists_delete' playlist.id %}">Delete</a> 
+                <span class="pl-info-edit-popup-tri"></span>
+                <div class="pl-info-edit-popup-hitbox"></div>
+                <a class="light" href="{% url 'playlists_update' playlist.id %}">Edit Playlist</a>
+                <a class="light" href="{% url 'playlists_delete' playlist.id %}">Delete Playlist</a>
             </div>
             <!-- <div class="pl-info-content-spacer">
             {{ playlist.songs.count }} songs, {{ playlist.duration }} ms
