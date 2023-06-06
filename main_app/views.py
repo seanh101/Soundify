@@ -112,11 +112,15 @@ def spotify_callback(request):
     token_info = sp_oauth.get_access_token(code)
     return redirect('playlists_index')
 
+def song_search_page(request):
+    return render(request, 'songs/search.html')
+    
 def song_search(request):
+    query_string = request.GET.get('query')
+    print('Query String: ', query_string)
     sp = spotipy.Spotify(auth_manager=SpotifyOAuth(client_id=os.environ['CLIENT_ID'], client_secret=os.environ['SECRET_KEY'], redirect_uri='http://localhost:8000/playlists'))
-    results = sp.search(q='LADY_GAGA', type='track', limit=10)
+    results = sp.search(q=query_string, type='track', limit=10)
 
     print(results)
 
-    return HttpResponse(f"Search resutls: {results}")
-    
+    return HttpResponse(f"Search results: {results}")
