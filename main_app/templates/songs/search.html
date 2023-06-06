@@ -1,6 +1,11 @@
 {% extends 'base.html' %}
 {% block content %}
 
-<a href="songs/search">Test API</a>
+    <h1>Song Search</h1>
+    <form method="GET" action="{% url 'search_results' %}">
+        <input type="text" name="query" placeholder="Enter a song name">
+        <button type="submit">Search</button>
+    </form>
+
 
 {% endblock %}
