@@ -3,6 +3,7 @@ from django.shortcuts import render, redirect
 from django.views.generic.edit import CreateView, UpdateView, DeleteView
 from django.views.generic import ListView, DetailView
 from django.contrib.auth import login
+from django.http import HttpResponse
 from django.contrib.auth.forms import UserCreationForm
 from django.contrib.auth.decorators import login_required
 from django.contrib.auth.mixins import LoginRequiredMixin
@@ -100,11 +101,22 @@ def unassoc_song(request, playlist_id, song_id):
 def spotify_connect(request):
     sp = spotipy.Spotify(auth_manager=SpotifyOAuth(client_id = os.environ['CLIENT_ID'],
         client_secret = os.environ['SECRET_KEY'],
-        redirect_uri='localhost:8000/playlists',
+        redirect_uri='http://localhost:8000/spotify/auth',
         scope='user-read-playback-state user-modify-playback-state user-read-currently-playing app-remote-control streaming playlist-read-private playlist-read-collaborative playlist-modify-private playlist-modify-public user-read-playback-position user-top-read user-read-recently-played user-library-modify user-library-read'))
     auth_url = sp.auth_manager.get_authorize_url()
     return redirect(auth_url)
 
+def spotify_callback(request):
+    code = request.GET.get('code')
+    sp_oauth = SpotifyOAuth(client_id=os.environ['CLIENT_ID'], client_secret=os.environ['SECRET_KEY'], redirect_uri='http://localhost:8000/spotify/auth')
+    token_info = sp_oauth.get_access_token(code)
+    return redirect('playlists_index')
+
+def song_search(request):
+    sp = spotipy.Spotify(auth_manager=SpotifyOAuth(client_id=os.environ['CLIENT_ID'], client_secret=os.environ['SECRET_KEY'], redirect_uri='http://localhost:8000/playlists'))
     results = sp.search(q='LADY_GAGA', type='track', limit=10)
 
     print(results)
+
+    return HttpResponse(f"Search resutls: {results}")
+    
