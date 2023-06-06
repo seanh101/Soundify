@@ -1,13 +1,33 @@
 {% extends 'base.html' %}
 {% block content %}
-
-<h1>Log In</h1>
-
-<form action="{% url 'login' %}" method="POST">
-  {% csrf_token %}
-  {{ form.as_p }}
-  <input type="hidden" name="next" value="{{ next }}">
-  <button type="submit" class="btn">Log In</button>
-</form>
+<div class="login-container">
+  <div class="login-title-div">Log in to Soundify</div>
+    <div class="input-field-container">
+      <form class="login-form" action="{% url 'login' %}" method="POST">
+        {% csrf_token %}
+        {{ form.as_p }}
+        <input type="hidden" name="next" value="{{ next }}">
+        <button type="submit" class="login-btn">Log In</button>
+      </form>
+    </div>
+</div>
 
 {% endblock %}
+
+
+    <!-- <div class="login-banner">Log in to Soundify</div>
+    <div class="input-field-container">
+        <div class="input-group">
+          <input type="text" required>
+          <span class="highlight"></span>
+          <label for="name">Name</label>
+        </div>
+      <br></br>
+        <div class="input-group">
+          <input type="password" required>
+          <span class="highlight"></span>
+          <label for="password">Password</label>
+  </div>
+    </div>
+  -->
+
