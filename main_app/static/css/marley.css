@@ -108,10 +108,10 @@ footer {
     width: var(--w);
     display: flex;
     border-radius: 20px;
-    border: solid #e4e4e4;
-    font-size: 15px;
-    justify-content: center;
-    align-items: center;
+    /* border: solid #e4e4e4; */
+    font-size: 22px;
+    justify-content: left;
+    align-items: left;
     padding: 35px;
     overflow-y: hidden;
     margin: 30px;
@@ -124,7 +124,7 @@ footer {
 }
 
 .signup-input-field-container {
-    --h: 370px;
+    --h: 390px;
     --w: calc(550px * 0.9);
     /* 320 */
     height: var(--h);
@@ -132,7 +132,7 @@ footer {
     display: flex;
     justify-content: center;
     align-items: center;
-    border: solid #e4e4e4;
+    /* border: solid #e4e4e4; */
     border-radius: 20px;
     padding: 35px;
     overflow-y: hidden;
@@ -144,6 +144,12 @@ footer {
 .helptext, .signup-input-field-container form ul{
     font-size: 13px;
 }
+
+.signup-form {
+    transform: translateY(-15%);
+    /* transform: translateX(4%); */
+}
+
 .signup-container form p span {
     display: block;
 }
@@ -153,5 +159,14 @@ li::before {
     color: black;
     display: inline-block;
     width: 1em;
-  }
-  
+}
+
+.signup-btn {
+    position: absolute;
+    background-color: black;
+    color: white;
+    border-radius: 20px;
+    width: 50%;
+    height: 8%;
+    /* transform: translateX(50%); */
+}

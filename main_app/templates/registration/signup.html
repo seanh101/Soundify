@@ -4,10 +4,10 @@
   <div class="signup-title-div">Sign Up</div>
   <p class="red-text">{{ error_message }}</p>
   <div class="signup-input-field-container">
-    <form action="{% url 'signup' %}" method="POST">
+    <form class="signup-form" action="{% url 'signup' %}" method="POST">
       {% csrf_token %}
       {{ form.as_p }}
-      <button type="submit" class="btn">Sign Up</button>
+      <button type="submit" class="signup-btn">Sign Up</button>
     </form>
   </div>
 </div>
