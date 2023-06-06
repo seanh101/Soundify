@@ -1,6 +1,6 @@
 {% extends 'base.html' %}
 {% block content %}
-
+<div class="app-body">
 <h1>Song Details</h1>
 
 <p>Title: {{ song.name }}</p>
@@ -12,5 +12,5 @@
 
 <a href="{% url 'song_update' song.id %}">Edit</a>
 <a href="{% url 'song_delete' song.id %}">Delete</a>
-
+</div>
 {% endblock %}
