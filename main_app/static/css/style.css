@@ -190,7 +190,7 @@ footer {
     background: white;
 }
 
-.side-nav {
+/* .side-nav {
     position: absolute;
     top: var(--header-height);
     width: var(--side-nav-width);
@@ -202,7 +202,7 @@ footer {
     display: flex;
     flex-direction: column;
     gap: 20px;
-}
+} */
 
 .app-body {
     margin-top: var(--header-height);

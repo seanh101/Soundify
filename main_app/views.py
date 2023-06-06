@@ -75,6 +75,7 @@ class PlaylistDelete(LoginRequiredMixin, DeleteView):
 class SongCreate(LoginRequiredMixin, CreateView):
     model = Song
     fields = '__all__'
+    success_url = '/songs'
 
     def form_valid(self, form):
         form.instance.user = self.request.user
