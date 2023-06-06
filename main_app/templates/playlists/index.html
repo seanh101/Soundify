@@ -1,40 +1,40 @@
 {% extends 'base.html' %}
 {% block content %}
+<div class="app-body">
 
 <h1>Playlists</h1>
 
-{% for playlist in playlists %}
-<div class="pl-card">
-    <div class="img"></div>
-    <div>
-        <a href="{% url 'playlists_detail' playlist.id %}">
-            <h2 class="pl-card-title">{{ playlist.name }}</h2>
-        </a>
-    </div>
-    <div class="pl-card-author-details-container">
-        <div class="profile-img"></div>
-        <span class="pl-card-author">
-            {{ playlist.user.username }}
+<div class="pl-card-container">
 
-        </span>
-        <span class="pl-card-details">
-            {{ playlist.songs.count }} songs, {{ playlist.duration }} ms
-        </span>
+    {% for playlist in playlists %}
+
+    <div class="pl-card">
+        <div class="img"></div>
+        <div>
+            <a href="{% url 'playlists_detail' playlist.id %}">
+                <h2 class="pl-card-title">{{ playlist.name }}</h2>
+            </a>
+        </div>
+        <div class="pl-card-author-details-container">
+            <div class="profile-img"></div>
+            <span class="pl-card-author">
+                {{ playlist.user.username }}
+
+            </span>
+            <span class="pl-card-details">
+                {{ playlist.songs.count }} songs, {{ playlist.duration }} ms
+            </span>
+        </div>
+        <div>
+            <p>
+                {{ playlist.description }}
+            </p>
+        </div>
     </div>
-    <div>
-        <p>
-            {{ playlist.description }}
-        </p>
-    </div>
+
+
+
+    {% endfor %}
 </div>
-
-
-<!-- <a href="{% url 'playlists_detail' playlist.id %}">
-    Name: {{ playlist.name }}
-    <p>Description: {{ playlist.description }}</p>
-    <p>Public?: {{ playlist.is_public }}</p>
-    <p>Total Duration: {{ playlist.duration }}</p>
-    <p>Songs: {{ playlist.songs.count }}</p>
-</a> -->
-{% endfor %}
+</div>
 {% endblock %}
