@@ -2,12 +2,14 @@
 {% block content %}
 <div class="login-container">
   <div class="login-title-div">Log in to Soundify</div>
-  <form action="{% url 'login' %}" method="POST">
-    {% csrf_token %}
-    {{ form.as_p }}
-    <input type="hidden" name="next" value="{{ next }}">
-    <button type="submit" class="login-btn">Log In</button>
-  </form>
+    <div class="input-field-container">
+      <form class="login-form" action="{% url 'login' %}" method="POST">
+        {% csrf_token %}
+        {{ form.as_p }}
+        <input type="hidden" name="next" value="{{ next }}">
+        <button type="submit" class="login-btn">Log In</button>
+      </form>
+    </div>
 </div>
 
 {% endblock %}
