@@ -1,5 +1,6 @@
 :root {
     --pl-image-hw: 200px;
+    --pl-info-edit-width: 28px;
 
 }
 
@@ -106,7 +107,7 @@ th {
 .pl-img-edit {
     position: absolute;
     bottom: 0;
-    left:0;
+    left: 0;
     right: 0;
     z-index: 1;
 
@@ -162,12 +163,76 @@ th {
     --d: 6px;
     border-radius: 50%;
     height: var(--d);
-    width:  var(--d);
+    width: var(--d);
     background-color: black;
+}
 
+.pl-info-edit:hover+.pl-info-edit-popup {
+    opacity: 1;
 }
 
 .pl-info-edit-popup {
-    visibility: hidden;
+    position: absolute;
+    right: 6px;
+    /* right: calc(var(--pl-info-edit-width) / 2 + 1rem); */
+    top: 2.5rem;
+    opacity: 0;
+
+    min-height: 55px;
+    min-width: 105px;
+
+    transition: 0.2s ease;
+    background: black;
+    padding: 1rem 2rem;
+    border-radius: 10px;
 }
 
+.pl-info-edit-popup:hover {
+    opacity: 1;
+}
+
+.pl-info-edit-popup a {
+    color: white;
+    display: block;
+}
+
+.pl-info-edit-popup-hitbox {
+    height: 115%;
+    width: 115%;
+    background: rgba(0, 0, 0, 0);
+}
+
+.pl-info-edit-popup-tri {
+    height: 0px;
+    width: 0px;
+    border-radius: 10px;
+
+    position: absolute;
+    top: 0;
+    transform: translateY(-75%);
+    right: 5px;
+
+    --d: 20px;
+
+    border-left: calc(var(--d)*.85) solid transparent;
+    border-right: calc(var(--d)*.85) solid transparent;
+
+    border-bottom: var(--d) solid black
+}
+
+
+a.light {
+    color: white;
+}
+
+a.light:hover {
+    color: rgb(238, 238, 238);
+}
+
+a {
+    color: black;
+}
+
+a:hover {
+    color: rgb(26, 26, 26);
+}
