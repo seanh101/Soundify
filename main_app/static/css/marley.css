@@ -1,0 +1,92 @@
+@import url("https://fonts.googleapis.com/css2?family=Inter:wght@100;200;300;400;500;600;700;800;900&display=swap");
+
+* {
+    font-family: "Inter", sans-serif;
+    font-weight: bold;
+}
+
+.login-container {
+    --h: 400px;
+    --w: calc(400px * 0.8);
+    /* 320 */
+    height: var(--h);
+    width: var(--w);
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    border-radius: 20px;
+    border: solid black;
+    padding: 35px;
+    overflow-y: hidden;
+    margin: auto;
+    position: relative;
+}
+
+.login-banner {
+    --h: 100px;
+    --w: calc(250px * 0.8);
+    /* 320 */
+    height: var(--h);
+    width: var(--w);
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    border-radius: 20px;
+    background: pink;
+    padding: 35px;
+    overflow-y: hidden;
+    margin: 30px;
+    position: absolute;
+    top: 0;
+}
+
+.input-field-container {
+    --h: 150px;
+    --w: calc(250px * 0.8);
+    /* 320 */
+    height: var(--h);
+    width: var(--w);
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    border-radius: 20px;
+    background: blue;
+    padding: 35px;
+    overflow-y: hidden;
+    margin: 10px;
+    position: absolute;
+    top: 40%;
+}
+
+footer {
+    text-align:center;
+}
+
+.login-title-div {
+    --h: 100px;
+    --w: calc(250px * 0.9);
+    /* 320 */
+    height: var(--h);
+    width: var(--w);
+    display: flex;
+    border-radius: 20px;
+    border: solid black;
+    font-size: 15px;
+    justify-content: center;
+    align-items: center;
+    padding: 35px;
+    overflow-y: hidden;
+    margin: 30px;
+    position: absolute;
+    top: 0;
+}
+
+/* .login-soundify {
+    font-size: 23px;
+} */
+
+.login-btn {
+    position: absolute;
+    top: 65%;
+    left: 40%;
+}
