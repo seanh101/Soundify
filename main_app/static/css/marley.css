@@ -2,6 +2,9 @@
 
 * {
     font-family: "Inter", sans-serif;
+}
+
+.login-container * {
     font-weight: bold;
 }
 
@@ -23,7 +26,7 @@
     right: 9.2%;
 }
 
-.input-field-container {
+.login-input-field-container {
     --h: 230px;
     --w: calc(250px * 0.9);
     /* 320 */
@@ -78,3 +81,77 @@ footer {
     font-size: 12px;
     transform: translateY(-13%);
 }
+
+.signup-container {
+    --h: 550px;
+    --w: calc(800px * 0.8);
+    /* 320 */
+    height: var(--h);
+    width: var(--w);
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    border-radius: 20px;
+    border: solid black;
+    padding: 35px;
+    overflow-y: hidden;
+    margin: auto;
+    position: relative;
+    right: 9.2%;
+}
+
+.signup-title-div {
+    --h: 100px;
+    --w: calc(550px * 0.9);
+    /* 320 */
+    height: var(--h);
+    width: var(--w);
+    display: flex;
+    border-radius: 20px;
+    border: solid #e4e4e4;
+    font-size: 15px;
+    justify-content: center;
+    align-items: center;
+    padding: 35px;
+    overflow-y: hidden;
+    margin: 30px;
+    position: absolute;
+    top: 0;
+    font-weight: bold;
+}
+.signup-container form p label {
+    font-weight: bold;
+}
+
+.signup-input-field-container {
+    --h: 370px;
+    --w: calc(550px * 0.9);
+    /* 320 */
+    height: var(--h);
+    width: var(--w);
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    border: solid #e4e4e4;
+    border-radius: 20px;
+    padding: 35px;
+    overflow-y: hidden;
+    margin: 10px;
+    position: absolute;
+    top: 21.8%;
+}
+
+.helptext, .signup-input-field-container form ul{
+    font-size: 13px;
+}
+.signup-container form p span {
+    display: block;
+}
+
+li::before {
+    content: "•";
+    color: black;
+    display: inline-block;
+    width: 1em;
+  }
+  
