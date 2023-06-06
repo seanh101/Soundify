@@ -14,6 +14,7 @@ urlpatterns = [
     path('songs/create/', views.SongCreate.as_view(), name='song_create'),
     path('songs/<int:pk>/update', views.SongUpdate.as_view(), name='song_update'),
     path('songs/<int:pk>/delete', views.SongDelete.as_view(), name='song_delete'),
+    path('songs/search', views.spotify_connect, name='spotify_connect'),
    
     path('accounts/signup/', views.signup, name='signup'),
     

@@ -7,6 +7,8 @@ from django.contrib.auth.forms import UserCreationForm
 from django.contrib.auth.decorators import login_required
 from django.contrib.auth.mixins import LoginRequiredMixin
 from .models import Playlist, Song
+import spotipy
+from spotipy.oauth2 import SpotifyOAuth
 
 def home(request):
     return render(request, 'home.html')
@@ -94,3 +96,15 @@ def assoc_song(reqeust, playlist_id, song_id):
 
 def unassoc_song(request, playlist_id, song_id):
     pass
+
+def spotify_connect(request):
+    sp = spotipy.Spotify(auth_manager=SpotifyOAuth(client_id = os.environ['CLIENT_ID'],
+        client_secret = os.environ['SECRET_KEY'],
+        redirect_uri='localhost:8000/playlists',
+        scope='user-read-playback-state user-modify-playback-state user-read-currently-playing app-remote-control streaming playlist-read-private playlist-read-collaborative playlist-modify-private playlist-modify-public user-read-playback-position user-top-read user-read-recently-played user-library-modify user-library-read'))
+    auth_url = sp.auth_manager.get_authorize_url()
+    return redirect(auth_url)
+
+    results = sp.search(q='LADY_GAGA', type='track', limit=10)
+
+    print(results)
