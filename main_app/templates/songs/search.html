@@ -1,11 +1,21 @@
 {% extends 'base.html' %}
 {% block content %}
 
-    <h1>Song Search</h1>
-    <form method="GET" action="{% url 'search_results' %}">
-        <input type="text" name="query" placeholder="Enter a song name">
-        <button type="submit">Search</button>
-    </form>
+<h1>Song Search</h1>
+
+<form method="GET" action="{% url 'song_search' %}">
+    <input type="text" name="query" placeholder="Enter a search query" required>
+    <button type="submit">Search</button>
+</form>
+
+{% if results %}
+    <h2>Search Results</h2>
+    <ul>
+        {% for track in results %}
+            <li>{{ track.name }} - {{ track.artists|join:', ' }}</li>
+        {% endfor %}
+    </ul>
+{% endif %}
 
 
 {% endblock %}
