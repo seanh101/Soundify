@@ -190,19 +190,20 @@ footer {
     background: white;
 }
 
-/* .side-nav {
+.side-nav {
     position: absolute;
     top: var(--header-height);
     width: var(--side-nav-width);
     padding-left: var(--gap);
     padding-top: 25px;
+    left: 0;
 
     border-right: 1px solid black;
     height: 100%;
     display: flex;
     flex-direction: column;
     gap: 20px;
-} */
+}
 
 .app-body {
     margin-top: var(--header-height);
