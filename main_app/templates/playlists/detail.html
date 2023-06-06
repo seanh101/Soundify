@@ -1,67 +1,69 @@
 {% extends 'base.html' %}
 {% block content %}
-<div class="side-nav">
-    <span>My Playlists
-        <a href="{% url 'playlist_create' %}">
-            +
+<div class="app-body">
+
+    <div class="side-nav">
+        <span>My Playlists
+            <a href="{% url 'playlist_create' %}">
+                +
+            </a>
+        </span>
+        <a href="#">
+            Playlist 1
         </a>
-    </span>
-    <a href="#">
-        Playlist 1
-    </a>
 
-    <a href="#">
-        Rockin some major tunage
-    </a>
-
-</div>
-
-<section class="my-playlists">
-    <h1>My Playlists</h1>
-    <div class="pl-container">
-
-        <div class="pl-card">
-            <div class="img"></div>
-            <div>
-                <h2 class="pl-card-title">{{ playlist.name }}</h2>
-            </div>
-            <div class="pl-card-author-details-container">
-                <div class="profile-img"></div>
-                <span class="pl-card-author">
-                    {{ playlist.user.username }}
-                </span>
-                <span class="pl-card-details">
-                    {{ playlist.songs.count }} songs, {{ playlist.duration }} ms
-                </span>
-            </div>
-            <div>
-                <p>
-                    {{ playlist.description }}
-                </p>
-            </div>
-        </div>
+        <a href="#">
+            Rockin some major tunage
+        </a>
 
     </div>
-</section>
 
-<h1>{{ playlist.name }}</h1>
+    <section class="my-playlists">
+        <h1>My Playlists</h1>
+        <div class="pl-container">
 
-<!-- {{ playlist.description }}
+            <div class="pl-card">
+                <div class="img"></div>
+                <div>
+                    <h2 class="pl-card-title">{{ playlist.name }}</h2>
+                </div>
+                <div class="pl-card-author-details-container">
+                    <div class="profile-img"></div>
+                    <span class="pl-card-author">
+                        {{ playlist.user.username }}
+                    </span>
+                    <span class="pl-card-details">
+                        {{ playlist.songs.count }} songs, {{ playlist.duration }} ms
+                    </span>
+                </div>
+                <div>
+                    <p>
+                        {{ playlist.description }}
+                    </p>
+                </div>
+            </div>
+
+        </div>
+    </section>
+
+    <h1>{{ playlist.name }}</h1>
+
+    <!-- {{ playlist.description }}
 {{ playlist.is_public }}
 {{ playlist.duration }}
 {{ playlist.user }} -->
 
-{% if playlist.songs.count %}
-{% for song in playlist.songs.all %}
-{{ song.name }}
-{% endfor %}
-{% else %}
-<h5>No songs added yet</h5>
-{% endif %}
+    {% if playlist.songs.count %}
+    {% for song in playlist.songs.all %}
+    {{ song.name }}
+    {% endfor %}
+    {% else %}
+    <h5>No songs added yet</h5>
+    {% endif %}
 
 
-<a href="{% url 'playlists_update' playlist.id %}">Edit</a>
-<a href="{% url 'playlists_delete' playlist.id %}">Delete</a>
+    <a href="{% url 'playlists_update' playlist.id %}">Edit</a>
+    <a href="{% url 'playlists_delete' playlist.id %}">Delete</a>
 
-
+</div>
 {% endblock %}
