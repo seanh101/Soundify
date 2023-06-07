@@ -2,7 +2,7 @@
 {% block content %}
 <div class="login-container">
   <div class="login-title-div">Log in to Soundify</div>
-    <div class="input-field-container">
+    <div class="login-input-field-container">
       <form class="login-form" action="{% url 'login' %}" method="POST">
         {% csrf_token %}
         {{ form.as_p }}
