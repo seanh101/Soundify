@@ -253,3 +253,9 @@ li::before {
     height: 10%;
     top: 60%;
 }
+
+/* SONG INDEX PAGE  */
+
+.app-body {
+    border: solid #e4e4e4;
+}
