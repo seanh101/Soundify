@@ -3,9 +3,38 @@
 
 <h2>Search Results</h2>
 <ul>
-    {% for track in results.tracks.items %}
-        <li>{{ track.name }}</li>
-    {% endfor %}
+    {% if search_type == 'artist' %}
+        {% for artist in results.artists.items %}
+            <li>
+                <strong>Artist:</strong> {{ artist.name }}<br>
+                <!-- Add more artist-specific fields if needed -->
+            </li>
+        {% endfor %}
+    {% elif search_type == 'album' %}
+        {% for album in results.albums.items %}
+            <li>
+                <strong>Album:</strong> {{ album.name }}<br>
+                <!-- Add more album-specific fields if needed -->
+            </li>
+        {% endfor %}
+    {% elif search_type == 'playlist' %}
+        {% for playlist in results.playlists.items %}
+            <li>
+                <strong>Playlist:</strong> {{ playlist.name }}<br>
+                <!-- Add more playlist-specific fields if needed -->
+            </li>
+        {% endfor %}
+    {% else %}
+        {% for track in results.tracks.items %}
+            <li>
+                <strong>Song:</strong> {{ track.name }}<br>
+                <strong>Artist:</strong> {{ track.artists.0.name }}<br>
+                <strong>Album:</strong> {{ track.album.name }}<br>
+                <strong>Genre:</strong> {{ track.genre }}<br>
+                <!-- Add more track-specific fields if needed -->
+            </li>
+        {% endfor %}
+    {% endif %}
 </ul>
 
 {% endblock %}
