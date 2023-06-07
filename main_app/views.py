@@ -100,14 +100,10 @@ class SongDelete(LoginRequiredMixin, DeleteView):
 
 def assoc_song(request):
     playlist_id = request.GET.get('playlist')
-    
-
-    Playlist.objects.get(id=playlist_id).songs.add()
-    
-    # Perform the logic to add the song to the playlist
-    # You can access the playlist and song objects using their IDs
-    
-    # Redirect to the playlist detail page
+    song_id = request.GET.get('song_id')
+    playlist = Playlist.objects.get(id=playlist_id)
+    song = Song.objects.get(id=song_id)
+    playlist.songs.add(song)
     return redirect('playlists_detail', playlist_id=playlist_id)
 
 
