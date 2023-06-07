@@ -1,13 +1,37 @@
 {% extends 'base.html' %}
 {% block content %}
-<div class="app-body">
-
-<h1>All Songs</h1>
-
-{% for song in songs %}
-    <a href="{% url 'songs_detail' song.id %}">
-        <p>Song Title: {{ song.name }}</p>
-    </a>
-    {% endfor %}
+<h1 class="so-index-title">All Songs</h1>
+<div class="song-list">
+    <table class="song-list-table">
+        <thead>
+            <tr>
+                <th>Song</th>
+                <th>Artist</th>
+                <th>Album</th>
+                <th>Duration</th>
+            </tr>
+        </thead>
+        <tbody>
+            {% if songs.count %}
+            {% for song in songs %}
+            <tr>
+                <td class="table-cell">
+                    <a href="{% url 'songs_detail' song.id %}">
+                        {{ song.name }}
+                    </a>
+                </td>
+                <td class="table-cell">{{ song.artist }}</td>
+                <td class="table-cell">{{ song.album }}</td>
+                <td class="table-cell">
+                    {{ song.duration }}
+                </td>
+            </tr>
+            {% endfor %}
+            {% else %}
+            <span>No songs added yet</span>
+            {% endif %}
+        </tbody>
+    </table>
 </div>
+
 {% endblock %}

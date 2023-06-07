@@ -3,9 +3,11 @@
 :root {
     --pl-image-hw: 200px;
     --pl-info-edit-width: 28px;
+    --purple-highlight: #CEB9FB;
 
 }
-
+h1 {
+}
 /* *, header, nav {
     background: rgb(246, 246, 246);
 } */
@@ -83,6 +85,10 @@ table {
 
 }
 
+.song-list {
+    width: 100%;
+}
+
 .song-list-table {
     width: 100%;
 }
@@ -91,17 +97,39 @@ table {
     height: 50px;
 }
 
+.song-list-table thead th:first-child {
+    padding-left: 2rem;
+}
+
 .song-list-table tbody td {
-    --border: 1px solid black;
+    --border: 1px solid var(--gray);
     border-top: var(--border);
     border-bottom: var(--border);
     height: 50px;
+    transition: background 0.2s ease;
+}
+
+.song-list-table tbody tr:hover td {
+    background: var(--neon-main);
+    /* color: white; */
+}
+
+.song-list-table tbody tr:hover td a {
+    /* color: white; */
+}
+
+.song-list-table tbody td:last-child {
+    color: var(--purple-shadow);
+
+}
+.song-list-table tbody td:first-child {
+    padding-left: 2rem;
 }
 
 th {
     text-align: left;
-    letter-spacing: 0.03em;
-    font-weight: 500;
+    letter-spacing: 0.05em;
+    font-weight: 700;
 }
 
 .pl-img-container {
@@ -236,9 +264,17 @@ a.light:hover {
 }
 
 a {
-    color: black;
+    color: var(--black);
 }
 
-a:hover {
+td a:hover {
+    text-decoration: underline;
+}
+
+/* a:hover {
     color: rgb(26, 26, 26);
+} */
+
+.so-index-title {
+    width: 100%;
 }

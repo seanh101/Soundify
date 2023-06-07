@@ -84,6 +84,9 @@ h5 {
 
 h1 {
     font-size: 4.286rem;
+    color: var(--purple-main);
+    font-weight: 700;
+    /* letter-spacing: 0.02em; */
 }
 
 h2 {
