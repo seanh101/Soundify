@@ -274,17 +274,14 @@ li::before {
     transform: translateX(-100%);
 }
 
-.delete-song-cancel-btn {
+.delete-song-cancel-link {
+    color: white;
     position: absolute;
     background-color: black;
     border-radius: 20px;
     width: 35%;
     height: 10%;
     transform: translateX(10%);
-}
-.delete-song-cancel-link {
-    color: white;
-    pointer-events: none;
 }
 
 .delete-song-message {
