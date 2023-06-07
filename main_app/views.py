@@ -123,8 +123,6 @@ def song_search(request):
         results = sp.search(q=query_string, type='artist', limit=50)
     elif search_type == 'album':
         results = sp.search(q=query_string, type='album', limit=50)
-    elif search_type == 'playlist':
-        results = sp.search(q=query_string, type='playlist', limit=50)
     else:
         results = sp.search(q=query_string, type='track', limit=50)
 

@@ -14,16 +14,13 @@
         {% for album in results.albums.items %}
             <li>
                 <strong>Album:</strong> {{ album.name }}<br>
+                <strong>Artist:</strong> {{ album.artists.0.name }}<br>
+                <strong>Number of Tracks:</strong> {{ album.total_tracks }}<br>
+                <strong>Release Date:</strong> {{ album.release_date }}<br>
                 <!-- Add more album-specific fields if needed -->
             </li>
         {% endfor %}
-    {% elif search_type == 'playlist' %}
-        {% for playlist in results.playlists.items %}
-            <li>
-                <strong>Playlist:</strong> {{ playlist.name }}<br>
-                <!-- Add more playlist-specific fields if needed -->
-            </li>
-        {% endfor %}
+    
     {% else %}
         {% for track in results.tracks.items %}
             <li>
