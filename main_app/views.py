@@ -1,5 +1,6 @@
 import os
 from django.shortcuts import render, redirect
+from django.urls import reverse
 from django.views.generic.edit import CreateView, UpdateView, DeleteView
 from django.views.generic import ListView, DetailView
 from django.contrib.auth import login
@@ -87,6 +88,9 @@ class SongCreate(LoginRequiredMixin, CreateView):
 class SongUpdate(LoginRequiredMixin, UpdateView):
     model = Song
     fields = '__all__'
+
+    def get_success_url(self):
+        return reverse('songs_detail', kwargs={'song_id': self.object.pk})
 
 class SongDelete(LoginRequiredMixin, DeleteView):
     model = Song
