@@ -1,14 +1,16 @@
 {% extends 'base.html' %}
 
 {% block content %}
+<div class="delete-song-confirmation-container">
+    <div class="delete-song-title-div">Delete Song</h1>
 
-    <h1>Delete Song</h1>
-
-    <h4>Are you sure you want to delete <span>{{ object.name }}</span>?</h4>
-
-    <form action="" method="POST">
-        {% csrf_token %}
-        <input type="submit" value="YES - Delete!">
-        <a href="{% url 'songs_detail' object.id %}">Cancel</a>
-    </form>
+    <div class="delete-song-message">Are you sure you want to delete <span>{{ object.name }}</span>?</div>
+    <div class="delete-song-form">
+        <form action="" method="POST">
+            {% csrf_token %}
+            <input class="delete-song-yes-btn" type="submit" value="YES - Delete">
+            <button class="delete-song-cancel-btn"><a class="delete-song-cancel-link" href="{% url 'songs_detail' object.id %}">Cancel</a></button>
+        </form>
+    </div>
+</div>
 {% endblock %}
