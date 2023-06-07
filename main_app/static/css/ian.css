@@ -1,8 +1,14 @@
+@import url('https://fonts.googleapis.com/css2?family=Geologica:wght@100;200;300;400;500;600;700;800;900&display=swap');
+
 :root {
     --pl-image-hw: 200px;
     --pl-info-edit-width: 28px;
 
 }
+
+/* *, header, nav {
+    background: rgb(246, 246, 246);
+} */
 
 .pl-card-container {
     width: 100%;
@@ -83,8 +89,6 @@ table {
 
 .song-list-table thead th {
     height: 50px;
-
-
 }
 
 .song-list-table tbody td {
@@ -96,6 +100,8 @@ table {
 
 th {
     text-align: left;
+    letter-spacing: 0.03em;
+    font-weight: 500;
 }
 
 .pl-img-container {
