@@ -4,7 +4,7 @@ from django.urls import reverse
 from django.views.generic.edit import CreateView, UpdateView, DeleteView
 from django.views.generic import ListView, DetailView
 from django.contrib.auth import login
-from django.http import HttpResponse
+from django.http import HttpResponse, request
 from django.contrib.auth.forms import UserCreationForm
 from django.contrib.auth.decorators import login_required
 from django.contrib.auth.mixins import LoginRequiredMixin
@@ -42,8 +42,10 @@ def songs_index(request):
 @login_required
 def songs_detail(request, song_id):
     song = Song.objects.get(id=song_id)
+    playlists = Playlist.objects.all()
     return render(request, 'songs/detail.html', {
-        'song': song
+        'song': song,
+        'playlists': playlists
     })
 
 def signup(request):
@@ -96,8 +98,18 @@ class SongDelete(LoginRequiredMixin, DeleteView):
     model = Song
     success_url = '/songs'
 
-def assoc_song(reqeust, playlist_id, song_id):
-    pass
+def assoc_song(request):
+    playlist_id = request.GET.get('playlist')
+    
+
+    Playlist.objects.get(id=playlist_id).songs.add()
+    
+    # Perform the logic to add the song to the playlist
+    # You can access the playlist and song objects using their IDs
+    
+    # Redirect to the playlist detail page
+    return redirect('playlists_detail', playlist_id=playlist_id)
+
 
 def unassoc_song(request, playlist_id, song_id):
     pass

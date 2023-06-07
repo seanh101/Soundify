@@ -13,4 +13,16 @@
 <a href="{% url 'song_update' song.id %}">Edit</a>
 <a href="{% url 'song_delete' song.id %}">Delete</a>
 </div>
+
+<div>
+    <form method="GET" action="{% url 'assoc_song' %}">
+        <select name="playlist">
+            {% for playlist in playlists %}
+                <option value="{{ playlist.id }}">{{ playlist.name }}</option>
+            {% endfor %}
+        </select>
+        <input type="hidden" name="song_id" value="{{ song.id }}">
+        <button type="submit">Add to Playlist</button>
+    </form>    
+</div>
 {% endblock %}
