@@ -199,7 +199,7 @@ header {
     width: 100vw;
     padding: 35px var(--gap);
     background: white;
-    z-index: 2;
+    z-index: 10;
 }
 
 footer {
