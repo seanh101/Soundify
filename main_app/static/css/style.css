@@ -10,7 +10,8 @@
 *::before,
 *::after {
     box-sizing: border-box;
-    font-family: "Inter", sans-serif;
+    font-family: 'Geologica', sans-serif;
+    font-weight: 200;
 }
 
 @media (prefers-reduced-motion: no-preference) {
@@ -57,10 +58,7 @@ html {
 
 body {
     text-rendering: optimizeLegibility;
-
     background: white;
-    font-family: "Inter", sans-serif;
-    font-weight: 400;
     line-height: 1.75;
     color: #000000;
 }
@@ -70,8 +68,8 @@ h2,
 h3,
 h4,
 h5 {
-    font-family: "Inter", sans-serif;
-    font-weight: 400;
+    font-weight: 300;
+    line-height: 1;
 }
 
 h1 {
@@ -84,6 +82,7 @@ h2 {
 
 h3 {
     font-size: 2.143rem;
+    letter-spacing: -0.005em;
 }
 
 h4 {
@@ -130,6 +129,11 @@ dl {
 sub,
 sup {
     line-height: 0;
+}
+
+th {
+    font-weight: 300;letter-spacing: 0.03em;
+    font-weight: 500;
 }
 
 /* -------------------- End boilerplate -------------------- */
@@ -234,24 +238,44 @@ footer {
     display: flex;
     flex-direction: row;
     justify-content: flex-start;
+    flex-wrap: wrap;
+}
 
+.pl-index-title {
+    width: 90vw;
 }
 
 .pl-card {
-    --h: 400px;
-    --w: calc(400px * 0.8);
+    --h: 375px;
+    --w: calc(var(--h) * 0.8);
     /* 320 */
     height: var(--h);
     width: var(--w);
-    background: #e4e4e4;
-    border-radius: 20px;
+    background: rgba(0,0,0,0);
+    /* border-radius: 20px; */
     padding: 35px;
     overflow-y: hidden;
+    border: 1px solid #B4B4B4;
+    position: relative;
+}
+
+.pl-card a {
+    top:0;
+    left:0;
+    right:0;
+    bottom:0;
+    position: absolute;
+}
+
+.pl-card:hover {
+    background: linear-gradient(180deg, rgba(252, 252, 252, 0.5) 0%, rgba(232, 232, 232, 0.4) 78.12%);
 }
 
 .pl-card-title {
     display: block;
     max-width: calc();
+    margin: 1.25rem 0;
+    margin-bottom: 1.5rem;
 }
 
 h1 {
@@ -263,6 +287,7 @@ h1 {
     background: black;
     height: 160px;
     width: 160px;
+    /* border-radius: 14px; */
 }
 
 .profile-img {
@@ -279,11 +304,15 @@ h1 {
     display: block;
 } */
 
+.pl-card-author, .pl-card-details {
+    color: #797979;
+
+}
+
 .pl-card-author {
-    font-family: "Inter";
     font-style: normal;
-    font-weight: 400;
-    font-size: 20px;
+    font-weight: 300;
+    font-size: 14px;
     line-height: 24px;
     /* leading-trim and text-edge are draft CSS properties.
 
@@ -313,7 +342,6 @@ h1 {
 }
 
 .pl-card-description {
-    font-family: "Inter";
     font-style: normal;
     font-weight: 400;
     font-size: 14px;
