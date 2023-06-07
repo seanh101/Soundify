@@ -2,6 +2,7 @@
 
 {% block content %}
 
+
 {% if object %}
 <h1>Edit <span class="teal-text">{{ object.name }}</span></h1>
 {% else %}
@@ -99,5 +100,22 @@
     </div>
 </section>
 
+
+<div class="add-playlist-form-container">
+    {% if object %}
+        <div class="add-playlist-form-title-div">Edit <span class="teal-text">{{ object.name }}</span></div>
+    {% else %}
+        <div class="add-playlist-form-title-div">Add Playlist</div>
+    {% endif %}
+    <div class="add-playlist-input-field-container">
+    <form action="" method="POST">
+        {% csrf_token %}
+        <table>
+        {{ form.as_table }}
+        </table>
+        <input type="submit" value="Submit" class="add-playlist-btn">
+    </form>
+    </div>
+</div>
 
 {% endblock %}

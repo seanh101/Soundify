@@ -2,6 +2,14 @@
 
 * {
     font-family: "Inter", sans-serif;
+}
+
+footer {
+    text-align:center;
+}
+
+/* LOGIN PAGE  */
+.login-container * {
     font-weight: bold;
 }
 
@@ -20,10 +28,28 @@
     overflow-y: hidden;
     margin: auto;
     position: relative;
-    right: 9.2%;
 }
 
-.input-field-container {
+.login-title-div {
+    --h: 100px;
+    --w: calc(300px * 0.9);
+    /* 320 */
+    height: var(--h);
+    width: var(--w);
+    display: flex;
+    border-radius: 20px;
+    /* border: solid #e4e4e4; */
+    font-size: 20px;
+    justify-content: center;
+    align-items: center;
+    padding: 35px;
+    overflow-y: hidden;
+    margin: 40px;
+    position: absolute;
+    top: 0;
+}
+
+.login-input-field-container {
     --h: 230px;
     --w: calc(250px * 0.9);
     /* 320 */
@@ -32,36 +58,13 @@
     display: flex;
     justify-content: center;
     align-items: center;
-    border: solid #e4e4e4;
+    /* border: solid #e4e4e4; */
     border-radius: 20px;
     padding: 35px;
     overflow-y: hidden;
     margin: 10px;
     position: absolute;
     top: 30%;
-}
-
-footer {
-    text-align:center;
-}
-
-.login-title-div {
-    --h: 100px;
-    --w: calc(250px * 0.9);
-    /* 320 */
-    height: var(--h);
-    width: var(--w);
-    display: flex;
-    border-radius: 20px;
-    border: solid #e4e4e4;
-    font-size: 15px;
-    justify-content: center;
-    align-items: center;
-    padding: 35px;
-    overflow-y: hidden;
-    margin: 30px;
-    position: absolute;
-    top: 0;
 }
 
 .login-btn {
@@ -71,10 +74,182 @@ footer {
     border-radius: 20px;
     width: 100%;
     height: 20%;
-    transform: translateY(10%);
+    transform: translateY(25%);
 }
 
 .login-form {
-    font-size: 12px;
-    transform: translateY(-13%);
+    font-size: 13px;
+    transform: translateY(-30%);
+}
+
+/* SIGNUP PAGE */
+.signup-container {
+    --h: 550px;
+    --w: calc(800px * 0.8);
+    /* 320 */
+    height: var(--h);
+    width: var(--w);
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    border-radius: 20px;
+    border: solid black;
+    padding: 35px;
+    overflow-y: hidden;
+    margin: auto;
+    position: relative;
+}
+
+.signup-title-div {
+    --h: 100px;
+    --w: calc(550px * 0.9);
+    /* 320 */
+    height: var(--h);
+    width: var(--w);
+    display: flex;
+    border-radius: 20px;
+    /* border: solid #e4e4e4; */
+    font-size: 22px;
+    justify-content: left;
+    align-items: left;
+    padding: 35px;
+    overflow-y: hidden;
+    margin: 30px;
+    position: absolute;
+    top: 0;
+    font-weight: bold;
+}
+.signup-container form p label {
+    font-weight: bold;
+}
+
+.signup-input-field-container {
+    --h: 390px;
+    --w: calc(550px * 0.9);
+    /* 320 */
+    height: var(--h);
+    width: var(--w);
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    /* border: solid #e4e4e4; */
+    border-radius: 20px;
+    padding: 35px;
+    overflow-y: hidden;
+    margin: 10px;
+    position: absolute;
+    top: 21.8%;
+}
+
+.helptext, .signup-input-field-container form ul{
+    font-size: 13px;
+}
+
+.signup-form {
+    transform: translateY(-15%);
+    /* transform: translateX(4%); */
+}
+
+.signup-container form p span {
+    display: block;
+}
+
+li::before {
+    content: "•";
+    color: black;
+    display: inline-block;
+    width: 1em;
+}
+
+.signup-btn {
+    position: absolute;
+    background-color: black;
+    color: white;
+    border-radius: 20px;
+    width: 50%;
+    height: 10%;
+}
+
+/* ABOUT PAGE  */
+
+/* .flex-container {
+    display: flex;
+    height: 100%;
+}
+
+.flex-item {
+    display: flex;
+    height: 50%;
+    width: 50%;
+} */
+
+/* CONFIRM DELETE PLAYLIST PAGE  */
+
+
+/* CONFIRM DELETE SONG PAGE  */
+
+
+/* ADD PLAYLIST PAGE */
+
+.add-playlist-form-container {
+    --h: 500px;
+    --w: calc(500px * 0.8);
+    /* 320 */
+    height: var(--h);
+    width: var(--w);
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    border-radius: 20px;
+    border: solid black;
+    padding: 35px;
+    overflow-y: hidden;
+    margin: auto;
+    position: relative;
+}
+
+.add-playlist-form-title-div {
+    --h: 100px;
+    --w: calc(350px * 0.9);
+    /* 320 */
+    height: var(--h);
+    width: var(--w);
+    font-size: 22px;
+    font-weight: bold;
+    display: flex;
+    border-radius: 20px;
+    /* border: solid #e4e4e4; */
+    font-size: 20px;
+    padding: 35px;
+    overflow-y: hidden;
+    margin: 40px;
+    position: absolute;
+    top: 0;
+    transform: translateY(40%);
+}
+
+.add-playlist-input-field-container {
+    --h: 230px;
+    --w: calc(350px * 0.9);
+    /* 320 */
+    height: var(--h);
+    width: var(--w);
+    display: flex;
+    /* border: solid #e4e4e4; */
+    border-radius: 20px;
+    padding: 35px;
+    overflow-y: hidden;
+    position: absolute;
+    top: 28%;
+    transform: translateY(17%);
+}
+
+.add-playlist-btn {
+    position: absolute;
+    background-color: black;
+    color: white;
+    border-radius: 20px;
+    width: 80%;
+    height: 10%;
+    top: 60%;
 }
