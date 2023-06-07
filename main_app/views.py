@@ -1,5 +1,5 @@
 import os
-from django.shortcuts import render, redirect
+from django.shortcuts import render, redirect, get_object_or_404
 from django.urls import reverse
 from django.views.generic.edit import CreateView, UpdateView, DeleteView
 from django.views.generic import ListView, DetailView
@@ -134,3 +134,20 @@ def song_search(request):
         'results': results,
         'search_type': search_type
     })
+
+
+@login_required
+def add_song(request, track_id):
+    sp = spotipy.Spotify(auth_manager=SpotifyOAuth(client_id=os.environ['CLIENT_ID'], client_secret=os.environ['SECRET_KEY'], redirect_uri='http://localhost:8000/playlists'))
+    track = sp.track(track_id)
+
+    song = Song.objects.create(
+        name=track['name'],
+        artist=track['artists'][0]['name'],
+        genre=track['album'].get('genres', ['Unknown'])[0],
+        album=track['album']['name'],
+        duration=track['duration_ms'],
+        release_date=track['album']['release_date'],  # Set the release_date to the current date
+    )
+
+    return redirect('songs_index')

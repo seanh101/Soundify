@@ -29,6 +29,10 @@
                 <strong>Album:</strong> {{ track.album.name }}<br>
                 <strong>Genre:</strong> {{ track.genre }}<br>
                 <!-- Add more track-specific fields if needed -->
+                <form action="{% url 'add_song' track.id %}" method="post">
+                    {% csrf_token %}
+                    <input type="submit" value="Add to Songs">
+                </form>
             </li>
         {% endfor %}
     {% endif %}
