@@ -1,0 +1,89 @@
+
+{% if object %}
+<!-- <h1>Edit <span class="teal-text">{{ object.name }}</span></h1> -->
+{% else %}
+<!-- <h1>Add Playlist</h1> -->
+{% endif %}
+
+<div class="side-nav">
+    <span class="side-nav-title">My Playlists
+        <a href="{% url 'playlist_create' %}">
+            +
+        </a>
+    </span>
+    <a href="{% url 'playlists_detail' playlist.id %}">
+        Playlist 1
+    </a>
+
+</div>
+
+<section class="my-playlists">
+    <div class="pl-main">
+        <div class="pl-img-container">
+            <img src="" alt="" class="pl-img">
+            <div class="pl-img-edit">
+                <label for="pl-img-edit-input">Paste image address:</label>
+                <input class="pl-img-edit-input" name="pl-img-edit-input" value="https://...">
+            </div>
+        </div>
+        <div class="pl-info">
+            <div class="pl-info-content-spacer">
+                <h2 class="pl-info-title">{{ playlist.name }}</h2>
+            </div>
+            <div class="pl-info-edit">
+                <span></span>
+                <span></span>
+                <span></span>
+            </div>
+            <div class="pl-info-edit-popup">
+                <span class="pl-info-edit-popup-tri"></span>
+                <div class="pl-info-edit-popup-hitbox"></div>
+                <a class="light" href="{% url 'playlists_update' playlist.id %}">Edit Playlist</a>
+                <a class="light" href="{% url 'playlists_delete' playlist.id %}">Delete Playlist</a>
+            </div>
+            <!-- <div class="pl-info-content-spacer">
+            {{ playlist.songs.count }} songs, {{ playlist.duration }} ms
+        </div> -->
+            <div class="pl-info-author-details-container">
+                <div class="profile-img"></div>
+                <span class="pl-card-author">
+                    {{ playlist.user.username }}
+                </span>
+                <span class="pl-card-details">
+                    {{ playlist.songs.count }} songs, {{ playlist.duration }} ms
+                </span>
+            </div>
+            <div>
+                <p class="pl-info-description">
+                    {{ playlist.description }}
+                </p>
+            </div>
+        </div>
+    </div>
+    <div class="song-list">
+        <table class="song-list-table">
+            <thead>
+                <tr>
+                    <th>Song</th>
+                    <th>Artist</th>
+                    <th>Album</th>
+                    <th>Duration</th>
+                </tr>
+            </thead>
+            <tbody>
+                {% if playlist.songs.count %}
+                {% for song in playlist.songs.all %}
+                <tr>
+                    <td>{{ song.name }}</td>
+                    <td>{{ song.artist }}</td>
+                    <td>{{ song.album }}</td>
+                    <td>{{ song.duration }}</td>
+                </tr>
+                {% endfor %}
+                {% else %}
+                <span>No songs added yet</span>
+                {% endif %}
+            </tbody>
+        </table>
+    </div>
+</section>
