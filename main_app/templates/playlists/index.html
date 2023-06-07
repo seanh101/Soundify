@@ -10,12 +10,8 @@
     <div class="pl-card">
         <a href="{% url 'playlists_detail' playlist.id %}">
         </a>
-        <div class="pl-img-edit">
-            <label for="pl-img-edit-input">Paste image address:</label>
-            <input class="pl-img-edit-input" name="pl-img-edit-input" value="https://...">
-        </div>
         <img src="../../static/images/playlistexample.png" alt="" class="img">
-            <h4 class="pl-card-title">{{ playlist.name }}</h4>
+        <h4 class="pl-card-title">{{ playlist.name }}</h4>
         <div class="pl-card-author-details-container">
             <div class="profile-img"></div>
             <span class="pl-card-author">

@@ -4,6 +4,15 @@
     --header-height: 100px;
     --side-nav-width: 200px;
 
+    /* Colors */
+    --purple-main: #9B71F6;
+    --purple-shadow: #8550F7;
+    --neon-main: #D6F050;
+    --neon-highlight: #EAF9A9;
+    --gray: #ccc;
+    --white: #fff;
+    --black: #1E1E1E;
+
 }
 
 *,
@@ -11,7 +20,7 @@
 *::after {
     box-sizing: border-box;
     font-family: 'Geologica', sans-serif;
-    font-weight: 200;
+    font-weight: 400;
 }
 
 @media (prefers-reduced-motion: no-preference) {
@@ -61,6 +70,7 @@ body {
     background: white;
     line-height: 1.75;
     color: #000000;
+    max-height: 100vh;
 }
 
 h1,
@@ -132,7 +142,8 @@ sup {
 }
 
 th {
-    font-weight: 300;letter-spacing: 0.03em;
+    font-weight: 300;
+    letter-spacing: 0.03em;
     font-weight: 500;
 }
 
@@ -251,8 +262,8 @@ footer {
     /* 320 */
     height: var(--h);
     width: var(--w);
-    background: rgba(0,0,0,0);
-    /* border-radius: 20px; */
+    background: rgba(0, 0, 0, 0);
+    border-radius: 20px;
     padding: 35px;
     overflow-y: hidden;
     border: 1px solid #B4B4B4;
@@ -260,10 +271,10 @@ footer {
 }
 
 .pl-card a {
-    top:0;
-    left:0;
-    right:0;
-    bottom:0;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
     position: absolute;
 }
 
@@ -304,7 +315,8 @@ h1 {
     display: block;
 } */
 
-.pl-card-author, .pl-card-details {
+.pl-card-author,
+.pl-card-details {
     color: #797979;
 
 }

@@ -23,7 +23,7 @@ def playlists_index(request):
 
 @login_required
 def playlists_detail(request, playlist_id):
-    playlist = Playlist.objects.get(id=playlist_id),
+    playlist = Playlist.objects.get(id=playlist_id)
     playlists = Playlist.objects.filter(user=request.user)
 
     return render(request, 'playlists/detail.html', {
