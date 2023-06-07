@@ -15,7 +15,7 @@ class Song(models.Model):
         return self.name
     
     def get_absolute_url(self):
-        return reverse('song_detail', kwargs={'pk': self.id})
+        return reverse('songs_detail', kwargs={'pk': self.id})
 
 class Playlist(models.Model):
     name = models.CharField(max_length=100)
