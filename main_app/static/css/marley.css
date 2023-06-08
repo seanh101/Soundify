@@ -82,6 +82,10 @@ footer {
     transform: translateY(-30%);
 }
 
+.col-2 {
+    margin: 15%;
+}
+
 /* SIGNUP PAGE */
 
 .signup-container {
@@ -175,7 +179,43 @@ li::before {
     font-weight: bold;
 } */
 
+.svg-1-purple {
+    display: flex;
+    transform: translateY(1%);
+}
+
+.second-half-of-body, .third-half-of-body {
+    width: 503px;
+    height: 157px;
+    background-color:rgb(133, 80, 247);
+}
+
+.second-half-of-body {
+    text-align: center; 
+    color: white;
+}
+
+.second-half-of-body-text {
+    width: 70%;
+    transform: translate(23%, -22%); 
+}
+
+.second-half-of-body-p {
+    color:rgba(245, 245, 245, 1);
+}
+
+.signup-grid-container, .login-grid-container {
+    display: grid;
+    margin: auto;
+}
+
+
+
 /* ABOUT PAGE  */
+
+.meet-the-team {
+    color: black;
+}
 
 .flex-container {
     display: flex;
@@ -209,6 +249,7 @@ li::before {
     height: 50%;
     width: 45%;
     border: solid black;
+    background-color: #e4e4e4;
 }
 
 .flex-item-3 {
@@ -236,6 +277,7 @@ li::before {
     display: flex;
     flex-basis: auto;
     margin: 2.5%;
+    color:#e4e4e4;
 }
 
 .team-pic {
