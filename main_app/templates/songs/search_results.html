@@ -16,7 +16,7 @@
     {% elif search_type == 'album' %}
         {% for album in results.albums.items %}
             <li>
-                <strong>Album:</strong> {{ album.name }}<br>
+                <strong>Album:</strong> <a href="{% url 'song_search' %}?query={{ album.name }}&search_type=track">{{ album.name }}</a><br>
                 <strong>Artist:</strong> {{ album.artists.0.name }}<br>
                 <strong>Number of Tracks:</strong> {{ album.total_tracks }}<br>
                 <strong>Release Date:</strong> {{ album.release_date }}<br>
