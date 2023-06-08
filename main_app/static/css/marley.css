@@ -483,3 +483,21 @@ li::before {
     width: 100%;
     transform: translate(50%, 80%);
 }
+
+/* SONG SEARCH  */
+.song-search-container {
+
+}
+
+.song-search-title {
+
+}
+
+.song-search-form {
+
+}
+
+.song-search-button {
+   padding: 20px;
+    transform: translateX(-6%);
+}
