@@ -490,3 +490,14 @@ li::before {
    padding: 20px;
     transform: translateX(-6%);
 }
+
+/* SEARCH RESULTS PAGE  */
+.search-results-search-again-button {
+    height: 40px;
+    /* padding: 5px; */
+    background-color: #9B71F6;
+}
+
+.ssearch-results-h5 {
+    color: white;
+}
