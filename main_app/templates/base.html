@@ -31,7 +31,7 @@
             <div class="nav-links-container">
                 {% if user.is_authenticated %}
                 <a href="{% url 'songs_index' %}">View All Songs</a>
-                <a href="{% url 'song_create' %}">Add New Songs</a>
+                <!-- <a href="{% url 'song_create' %}">Add New Songs</a> -->
                 <a href="{% url 'playlists_index' %}">View All Playlists</a>
                 <a href="{% url 'playlist_create' %}">Add New Playlist</a>
                 <a class="right" href="{% url 'about' %}">About</a>
