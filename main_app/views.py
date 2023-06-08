@@ -130,16 +130,21 @@ def spotify_connect(request):
 
 def spotify_callback(request):
     code = request.GET.get('code')
-    sp_oauth = SpotifyOAuth(client_id=os.environ['CLIENT_ID'], client_secret=os.environ['SECRET_KEY'], redirect_uri='http://localhost:8000/spotify/auth')
+    sp_oauth = SpotifyOAuth(
+        client_id=os.environ['CLIENT_ID'],
+        client_secret=os.environ['SECRET_KEY'],
+        redirect_uri='http://localhost:8000/spotify/auth',
+        scope='user-read-playback-state user-modify-playback-state user-read-currently-playing app-remote-control streaming playlist-read-private playlist-read-collaborative playlist-modify-private playlist-modify-public user-read-playback-position user-top-read user-read-recently-played user-library-modify user-library-read'
+    )
     token_info = sp_oauth.get_access_token(code)
-    
+
     access_token = token_info['access_token']
-    
-    # Store the access token in the user profile
+
+    # Create or update the user profile with the new access token
     user_profile, created = UserProfile.objects.get_or_create(user=request.user)
     user_profile.spotify_access_token = access_token
     user_profile.save()
-    
+
     return redirect('playlists_index')
 
 def song_search_page(request):
@@ -230,6 +235,7 @@ def get_user_access_token(user):
         return profile.spotify_access_token
     except UserProfile.DoesNotExist:
         return None
+
 
 def get_user_token(request):
     access_token = get_user_access_token(request.user)
