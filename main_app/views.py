@@ -108,7 +108,11 @@ def assoc_song(request):
 
 
 def unassoc_song(request, playlist_id, song_id):
-    pass
+    playlist = Playlist.objects.get(id=playlist_id)
+    song = Song.objects.get(id=song_id)
+    playlist.songs.remove(song)
+
+    return HttpResponseRedirect(request.META.get('HTTP_REFERER'))
 
 def spotify_connect(request):
     sp = spotipy.Spotify(auth_manager=SpotifyOAuth(client_id = os.environ['CLIENT_ID'],

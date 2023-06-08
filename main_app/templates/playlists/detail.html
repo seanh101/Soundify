@@ -66,6 +66,7 @@
                     <th>Artist</th>
                     <th>Album</th>
                     <th>Duration</th>
+                    <th></th>
                 </tr>
             </thead>
             <tbody>
@@ -76,6 +77,9 @@
                     <td>{{ song.artist }}</td>
                     <td>{{ song.album }}</td>
                     <td>{{ song.duration }}</td>
+                    <td>
+                        <a href="{% url 'unassoc_song' playlist.id song.id %}">X</a>
+                    </td>
                 </tr>
                 {% endfor %}
                 {% else %}
