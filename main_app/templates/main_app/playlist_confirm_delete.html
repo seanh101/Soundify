@@ -2,8 +2,8 @@
 
 {% block content %}
 <div class="delete-playlist-confirmation-container">
-    <h2 class="delete-playlist-title-div">Delete Playlist</h2>
-    <h4 class="delete-playlist-message">Are you sure you want to delete <span>{{ object.name }}</span>?</h4>
+    <div class="delete-playlist-title-div">Delete Playlist</div>
+    <div class="delete-playlist-message">Are you sure you want to delete <span>{{ object.name }}</span>?</div>
     <form class="delete-song-confirmation-form"action="" method="POST">
         {% csrf_token %}
             <div class="playlist-delete-confirmation-buttons-container">

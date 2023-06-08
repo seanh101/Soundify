@@ -415,7 +415,7 @@ li::before {
     display: flex;
     flex-wrap: wrap;
     justify-content: center;
-    border: solid #e4e4e4;
+    /* border: solid #e4e4e4; */
     text-align: center;
     border-radius: 20px;
     font-size: 22px;
@@ -427,7 +427,7 @@ li::before {
 
 .delete-playlist-message {
     font-weight: normal;
-    border: solid #e4e4e4;
+    /* border: solid #e4e4e4; */
     --h: 100px;
     --w: calc(400px * 0.9);
     /* 320 */
@@ -436,14 +436,14 @@ li::before {
     display: flex;
     flex-wrap: wrap;
     justify-content: center;
-    border: solid #e4e4e4;
+    /* border: solid #e4e4e4; */
     text-align: center;
     border-radius: 20px;
     font-size: 22px;
     overflow-y: hidden;
     position: absolute;
     font-weight: normal;
-    bottom: 30%;
+    bottom: 35%;
 }
 
 .delete-playlist-message span {
@@ -479,7 +479,7 @@ li::before {
 }
 
 .delete-song-confirmation-form {
-    height: fit-content;
+    height: 100%;
     width: 100%;
-    display: block;
+    transform: translate(50%, 80%);
 }
