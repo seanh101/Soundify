@@ -1,0 +1,25 @@
+<svg width="555" height="166" viewBox="0 0 555 166" fill="none" xmlns="http://www.w3.org/2000/svg">
+<rect width="555" height="166" fill="#D6F050"/>
+<circle cx="48" cy="25" r="11" fill="#9B71F6"/>
+<circle cx="102" cy="29" r="15" fill="#9B71F6"/>
+<mask id="mask0_142_1679" style="mask-type:alpha" maskUnits="userSpaceOnUse" x="0" y="0" width="555" height="166">
+<rect width="555" height="166" fill="#D6F050"/>
+</mask>
+<g mask="url(#mask0_142_1679)">
+<circle cx="585" cy="7" r="46" fill="#9B71F6"/>
+<circle cx="22" cy="-1" r="15" fill="#9B71F6"/>
+</g>
+<circle cx="113" cy="60" r="6" fill="#9B71F6"/>
+<circle cx="477" cy="80" r="10" fill="#9B71F6"/>
+<circle cx="519.5" cy="25.5" r="8.5" fill="#9B71F6"/>
+<circle cx="158" cy="81" r="35" fill="#9B71F6"/>
+<circle cx="216" cy="103" r="9" fill="#9B71F6"/>
+<circle cx="237" cy="122" r="12" fill="#9B71F6"/>
+<circle cx="360" cy="103" r="6" fill="#9B71F6"/>
+<circle cx="508" cy="60" r="6" fill="#9B71F6"/>
+<circle cx="270.5" cy="105.5" r="7.5" fill="#9B71F6"/>
+<circle cx="339.5" cy="134.5" r="7.5" fill="#9B71F6"/>
+<circle cx="305" cy="114" r="20" fill="#9B71F6"/>
+<circle cx="444.5" cy="67.5" r="15.5" fill="#9B71F6"/>
+<circle cx="390" cy="66" r="24" fill="#9B71F6"/>
+</svg>
