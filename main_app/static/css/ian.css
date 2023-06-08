@@ -37,10 +37,19 @@
 
 .side-nav-title {
     font-size: 1.2rem;
-    font-weight: 800;
+    font-weight: 600;
     color: var(--purple-main);
-    letter-spacing: 0.02em;
+    letter-spacing: 0.05em;
+    text-transform: uppercase;
 }
+
+.side-nav a {
+    padding: 10px 0;
+    padding-left: 7px;
+    transition: 0.2s ease;
+    border-radius: 6px;
+}
+
 
 .side-nav a:hover {
     background: var(--neon-main);
@@ -135,7 +144,8 @@ table {
     /* color: var(--white); */
 }
 
-.song-list-table tbody td:last-child {
+
+.song-list-table tbody td:nth-child(4) {
     color: var(--purple-shadow);
 }
 

@@ -212,6 +212,11 @@ nav::before {
     right: 0;
 }
 
+.nav-links-container a:hover {
+    text-decoration: underline;
+    color: var(--purple-shadow);
+}
+
 .nav a {
     text-align: center;
     float: right;
@@ -239,16 +244,16 @@ footer {
 .side-nav {
     /* position: absolute; */
     /* top: var(--header-height); */
-    width: var(--side-nav-width);
+    width: calc(var(--side-nav-width));
     /* padding-left: var(--gap); */
-    padding-right: 1.5rem;
+    padding-right: 0.5rem;
     padding-top: 0px;
 
     border-right: 1px solid var(--gray);
     min-height: 100vh;
     display: flex;
     flex-direction: column;
-    gap: 20px;
+    gap: 0px;
     margin-right: var(--gap);
 }
 
