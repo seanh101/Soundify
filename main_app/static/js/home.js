@@ -6,7 +6,7 @@ let slider;
 let zOff = 0;
 function setup() {
     let myCanvas = createCanvas(600, 200);
-    myCanvas.parent("mydiv");
+    myCanvas.parent("home-soundwave");
 
     background("#e9e0f0");
 
@@ -34,7 +34,7 @@ function draw() {
 
             let xOff = map(cos(a + phase), -1, 20, 0, noiseMax);
             let yOff = map(sin(a + phase), -1, 0.5, 0, noiseMax);
-            let r = map(noise(xOff, yOff, zOff*.5), 0, 1, 100, 200) * (i * 0.1);
+            let r = map(noise(xOff, yOff, zOff * .5), 0, 1, 100, 200) * (i * 0.1);
             let x = r * PI * cos(a);
             let y = r * 2 * sin(a);
             vertex(x, y);
