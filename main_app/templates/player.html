@@ -33,25 +33,25 @@
 
       // Ready
       player.addListener('ready', ({ device_id }) => {
-        console.log('Ready with Device ID', device_id);
+      console.log('Ready with Device ID', device_id);
 
-        // Fetch and populate the user's playlists
-        player._options.getOAuthToken(accessToken => {
-          fetch('https://api.spotify.com/v1/me/playlists', {
-            headers: {
-              'Authorization': `Bearer ${accessToken}`
-            }
-          })
-            .then(response => response.json())
-            .then(data => {
-              const playlistSelect = document.getElementById('playlist-select');
-              data.items.forEach(playlist => {
-                const option = document.createElement('option');
-                option.value = playlist.id;
-                option.textContent = playlist.name;
-                playlistSelect.appendChild(option);
-              });
+      // Fetch and populate the user's playlists
+      player._options.getOAuthToken(accessToken => {
+        fetch('https://api.spotify.com/v1/me/playlists', {
+          headers: {
+            'Authorization': `Bearer ${accessToken}`
+          }
+        })
+          .then(response => response.json())
+          .then(data => {
+            const playlistSelect = document.getElementById('playlist-select');
+            data.items.forEach(playlist => {
+              const option = document.createElement('option');
+              option.value = playlist.id;
+              option.textContent = playlist.name;
+              playlistSelect.appendChild(option);
             });
+
         });
 
         const togglePlayButton = document.getElementById('togglePlay');
@@ -131,16 +131,21 @@
             console.log('Playback stopped');
           });
         });
-      });
 
-      // Not Ready
-      player.addListener('not_ready', ({ device_id }) => {
-        console.log('Device ID has gone offline', device_id);
-      });
+          });
 
-      player.addListener('initialization_error', ({ message }) => {
-        console.error(message);
       });
+    });
+
+    // Not Ready
+    player.addListener('not_ready', ({ device_id }) => {
+      console.log('Device ID has gone offline', device_id);
+    });
+
+    player.addListener('initialization_error', ({ message }) => {
+      console.error(message);
+    });
+
 
       player.addListener('authentication_error', ({ message }) => {
         console.error(message);
@@ -149,4 +154,16 @@
       player.connect();
     }
   </script>
+
+    player.addListener('authentication_error', ({ message }) => {
+      console.error(message);
+    });
+
+    // Add other event listeners and player controls here
+
+    // Connect the player
+    player.connect();
+  };
+    </script>
+
 {% endblock %}
