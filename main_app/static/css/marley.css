@@ -82,6 +82,10 @@ footer {
     transform: translateY(-30%);
 }
 
+.col-2 {
+    margin: 15%;
+}
+
 /* SIGNUP PAGE */
 
 .signup-container {
@@ -175,7 +179,43 @@ li::before {
     font-weight: bold;
 } */
 
+.svg-1-purple {
+    display: flex;
+    transform: translateY(1%);
+}
+
+.second-half-of-body, .third-half-of-body {
+    width: 503px;
+    height: 157px;
+    background-color:rgb(133, 80, 247);
+}
+
+.second-half-of-body {
+    text-align: center; 
+    color: white;
+}
+
+.second-half-of-body-text {
+    width: 70%;
+    transform: translate(23%, -22%); 
+}
+
+.second-half-of-body-p {
+    color:rgba(245, 245, 245, 1);
+}
+
+.signup-grid-container, .login-grid-container {
+    display: grid;
+    margin: auto;
+}
+
+
+
 /* ABOUT PAGE  */
+
+.meet-the-team {
+    color: black;
+}
 
 .flex-container {
     display: flex;
@@ -209,6 +249,7 @@ li::before {
     height: 50%;
     width: 45%;
     border: solid black;
+    background-color: #e4e4e4;
 }
 
 .flex-item-3 {
@@ -236,6 +277,7 @@ li::before {
     display: flex;
     flex-basis: auto;
     margin: 2.5%;
+    color:#e4e4e4;
 }
 
 .team-pic {
@@ -415,7 +457,7 @@ li::before {
     display: flex;
     flex-wrap: wrap;
     justify-content: center;
-    border: solid #e4e4e4;
+    /* border: solid #e4e4e4; */
     text-align: center;
     border-radius: 20px;
     font-size: 22px;
@@ -427,7 +469,7 @@ li::before {
 
 .delete-playlist-message {
     font-weight: normal;
-    border: solid #e4e4e4;
+    /* border: solid #e4e4e4; */
     --h: 100px;
     --w: calc(400px * 0.9);
     /* 320 */
@@ -436,14 +478,14 @@ li::before {
     display: flex;
     flex-wrap: wrap;
     justify-content: center;
-    border: solid #e4e4e4;
+    /* border: solid #e4e4e4; */
     text-align: center;
     border-radius: 20px;
     font-size: 22px;
     overflow-y: hidden;
     position: absolute;
     font-weight: normal;
-    bottom: 30%;
+    bottom: 35%;
 }
 
 .delete-playlist-message span {
@@ -479,7 +521,25 @@ li::before {
 }
 
 .delete-song-confirmation-form {
-    height: fit-content;
+    height: 100%;
     width: 100%;
-    display: block;
+    transform: translate(50%, 80%);
+}
+
+/* SONG SEARCH  */
+
+.song-search-button {
+   padding: 20px;
+    transform: translateX(-6%);
+}
+
+/* SEARCH RESULTS PAGE  */
+.search-results-search-again-button {
+    height: 40px;
+    /* padding: 5px; */
+    background-color: #9B71F6;
+}
+
+.ssearch-results-h5 {
+    color: white;
 }
