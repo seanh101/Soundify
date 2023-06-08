@@ -29,6 +29,8 @@
     }
 }
 
+
+
 label,
 button,
 select,
@@ -273,7 +275,7 @@ footer {
     background: rgba(0, 0, 0, 0);
     border-radius: 20px;
     padding: 35px;
-    overflow-y: hidden;
+    overflow-y: overlay;
     border: 1px solid var(--gray);
     position: relative;
     display: flex;
@@ -281,7 +283,7 @@ footer {
 }
 
 .pl-card:hover {
-    overflow-y: scroll;
+    overflow-y: overlay;
 }
 
 .pl-card a {

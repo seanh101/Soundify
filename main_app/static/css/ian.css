@@ -4,6 +4,7 @@
     --pl-image-hw: 200px;
     --pl-info-edit-width: 28px;
     --purple-highlight: #CEB9FB;
+    overflow-y: overlay;
 
 }
 
@@ -26,6 +27,7 @@ h1 {}
 .pl-card-details {
     color: var(--purple-shadow);
 }
+
 .my-playlists {
     width: calc(100% - var(--side-nav-width) - var(--gap));
     display: flex;
@@ -297,4 +299,29 @@ td a:hover {
 #mydiv {
     width: 600px;
     height: 200px;
+}
+
+::-webkit-scrollbar {
+    width: 6px;
+    position: absolute;
+    right: 0;
+    top: 0;
+    bottom: 0;
+}
+
+/* Track */
+::-webkit-scrollbar-track {
+    border: 0;
+    background: rgba(0, 0, 0, 0);
+}
+
+/* Handle */
+::-webkit-scrollbar-thumb {
+    background: #ccc;
+    border-radius: 10px;
+}
+
+/* Handle on hover */
+::-webkit-scrollbar-thumb:hover {
+    background: #B9B9B9;
 }
