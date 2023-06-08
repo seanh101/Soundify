@@ -3,8 +3,11 @@
 :root {
     --pl-image-hw: 200px;
     --pl-info-edit-width: 28px;
+    --purple-highlight: #CEB9FB;
 
 }
+
+h1 {}
 
 /* *, header, nav {
     background: rgb(246, 246, 246);
@@ -29,6 +32,13 @@
 
 .side-nav-title {
     font-size: 1.2rem;
+    font-weight: 800;
+    color: var(--purple-main);
+    letter-spacing: 0.02em;
+}
+
+.side-nav a:hover {
+    background: var(--neon-main);
 }
 
 .pl-main {
@@ -83,6 +93,10 @@ table {
 
 }
 
+.song-list {
+    width: 100%;
+}
+
 .song-list-table {
     width: 100%;
 }
@@ -91,17 +105,40 @@ table {
     height: 50px;
 }
 
+.song-list-table thead th:first-child {
+    padding-left: 2rem;
+}
+
 .song-list-table tbody td {
-    --border: 1px solid black;
+    --border: 1px solid var(--gray);
     border-top: var(--border);
     border-bottom: var(--border);
     height: 50px;
+    transition: background 0.2s ease;
+}
+
+.song-list-table tbody tr:hover td {
+    background: var(--neon-main);
+    /* color: var(--white); */
+}
+
+.song-list-table tbody tr:hover td a {
+    /* color: var(--white); */
+}
+
+.song-list-table tbody td:last-child {
+    color: var(--purple-shadow);
+
+}
+
+.song-list-table tbody td:first-child {
+    padding-left: 2rem;
 }
 
 th {
     text-align: left;
-    letter-spacing: 0.03em;
-    font-weight: 500;
+    letter-spacing: 0.05em;
+    font-weight: 700;
 }
 
 .pl-img-container {
@@ -143,7 +180,7 @@ th {
 }
 
 .pl-img-edit label {
-    color: white;
+    color: var(--white);
     line-height: 1;
     margin-bottom: .75rem;
 }
@@ -198,7 +235,7 @@ th {
 }
 
 .pl-info-edit-popup a {
-    color: white;
+    color: var(--white);
     display: block;
 }
 
@@ -228,7 +265,7 @@ th {
 
 
 a.light {
-    color: white;
+    color: var(--white);
 }
 
 a.light:hover {
@@ -236,9 +273,22 @@ a.light:hover {
 }
 
 a {
-    color: black;
+    color: var(--black);
 }
 
-a:hover {
+td a:hover {
+    text-decoration: underline;
+}
+
+/* a:hover {
     color: rgb(26, 26, 26);
+} */
+
+.so-index-title {
+    width: 100%;
+}
+
+#mydiv {
+    width: 600px;
+    height: 200px;
 }

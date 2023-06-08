@@ -5,38 +5,12 @@
 
 {% if object %}
 <h1>Edit <span class="teal-text">{{ object.name }}</span></h1>
-{% else %}
-<h1>Add Playlist</h1>
-{% endif %}
-
-<form action="" method="POST">
-    {% csrf_token %}
-    <table>
-        {{ form.as_table }}
-    </table>
-    <input type="submit" value="Submit!" class="btn">
-</form>
-
-<div class="side-nav">
-    <span class="side-nav-title">My Playlists
-        <a href="{% url 'playlist_create' %}">
-            +
-        </a>
-    </span>
-    <a href="{% url 'playlists_detail' playlist.id %}">
-        Playlist 1
-    </a>
-
-</div>
 
 <section class="my-playlists">
     <div class="pl-main">
         <div class="pl-img-container">
             <img src="" alt="" class="pl-img">
-            <div class="pl-img-edit">
-                <label for="pl-img-edit-input">Paste image address:</label>
-                <input class="pl-img-edit-input" name="pl-img-edit-input" value="https://...">
-            </div>
+
         </div>
         <div class="pl-info">
             <div class="pl-info-content-spacer">
@@ -47,12 +21,7 @@
                 <span></span>
                 <span></span>
             </div>
-            <div class="pl-info-edit-popup">
-                <span class="pl-info-edit-popup-tri"></span>
-                <div class="pl-info-edit-popup-hitbox"></div>
-                <a class="light" href="{% url 'playlists_update' playlist.id %}">Edit Playlist</a>
-                <a class="light" href="{% url 'playlists_delete' playlist.id %}">Delete Playlist</a>
-            </div>
+
             <!-- <div class="pl-info-content-spacer">
             {{ playlist.songs.count }} songs, {{ playlist.duration }} ms
         </div> -->
@@ -100,22 +69,35 @@
     </div>
 </section>
 
-
+{% else %}
+<h1>Add Playlist</h1>
 <div class="add-playlist-form-container">
     {% if object %}
-        <div class="add-playlist-form-title-div">Edit <span class="teal-text">{{ object.name }}</span></div>
+    <div class="add-playlist-form-title-div">Edit <span class="teal-text">{{ object.name }}</span></div>
     {% else %}
-        <div class="add-playlist-form-title-div">Add Playlist</div>
+    <div class="add-playlist-form-title-div">Add Playlist</div>
     {% endif %}
     <div class="add-playlist-input-field-container">
-    <form action="" method="POST">
-        {% csrf_token %}
-        <table>
-        {{ form.as_table }}
-        </table>
-        <input type="submit" value="Submit" class="add-playlist-btn">
-    </form>
+        <form action="" method="POST">
+            {% csrf_token %}
+            <table>
+                {{ form.as_table }}
+            </table>
+            <input type="submit" value="Submit" class="add-playlist-btn">
+        </form>
     </div>
 </div>
+{% endif %}
+<!-- 
+<form action="" method="POST">
+    {% csrf_token %}
+    <table>
+        {{ form.as_table }}
+    </table>
+    <input type="submit" value="Submit!" class="btn">
+</form> -->
+
+
+
 
 {% endblock %}
