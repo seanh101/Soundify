@@ -6,8 +6,11 @@
     {% if search_type == 'artist' %}
         {% for artist in results.artists.items %}
             <li>
-                <strong>Artist:</strong> {{ artist.name }}<br>
-                <!-- Add more artist-specific fields if needed -->
+                <strong>Artist:</strong> 
+                <a href="{% url 'song_search' %}?query={{ artist.name|urlencode }}&search_type=track">
+                    {{ artist.name }}
+                </a>
+                <br>
             </li>
         {% endfor %}
     {% elif search_type == 'album' %}
