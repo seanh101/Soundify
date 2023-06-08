@@ -2,18 +2,22 @@
 {% block content %}
 
 <h2>Search Results</h2>
+<a href="{% url 'song_search_page' %}"><h5>Search Again</h5></a>
 <ul>
     {% if search_type == 'artist' %}
         {% for artist in results.artists.items %}
             <li>
-                <strong>Artist:</strong> {{ artist.name }}<br>
-                <!-- Add more artist-specific fields if needed -->
+                <strong>Artist:</strong> 
+                <a href="{% url 'song_search' %}?query={{ artist.name|urlencode }}&search_type=track">
+                    {{ artist.name }}
+                </a>
+                <br>
             </li>
         {% endfor %}
     {% elif search_type == 'album' %}
         {% for album in results.albums.items %}
             <li>
-                <strong>Album:</strong> {{ album.name }}<br>
+                <strong>Album:</strong> <a href="{% url 'song_search' %}?query={{ album.name }}&search_type=track">{{ album.name }}</a><br>
                 <strong>Artist:</strong> {{ album.artists.0.name }}<br>
                 <strong>Number of Tracks:</strong> {{ album.total_tracks }}<br>
                 <strong>Release Date:</strong> {{ album.release_date }}<br>
@@ -27,11 +31,18 @@
                 <strong>Song:</strong> {{ track.name }}<br>
                 <strong>Artist:</strong> {{ track.artists.0.name }}<br>
                 <strong>Album:</strong> {{ track.album.name }}<br>
-                <strong>Genre:</strong> {{ track.genre }}<br>
-                <!-- Add more track-specific fields if needed -->
-                <form action="{% url 'add_song' track.id %}" method="post">
+                <form action="{% url 'add_song_and_assoc' %}" method="post">
                     {% csrf_token %}
-                    <input type="submit" value="Add to Songs">
+                    <input type="hidden" name="track_id" value="{{ track.id }}">
+                    <select name="playlist">
+                        {% for playlist in playlists %}
+                            <option value="{{ playlist.id }}">{{ playlist.name }}</option>
+                        {% endfor %}
+                    </select>
+                    <input type="hidden" name="track_id" value="{{ track.id }}">
+                    <input type="hidden" name="query" value="{{ query_string }}">
+                    <input type="hidden" name="search_type" value="{{ search_type }}">
+                    <input type="submit" value="Add to Playlist">
                 </form>
             </li>
         {% endfor %}
