@@ -4,27 +4,39 @@
 
 
 {% if object %}
-<h1>Edit <span class="teal-text">{{ object.name }}</span></h1>
+
+<div class="side-nav">
+    <span class="side-nav-title">My Playlists
+        <a href="{% url 'playlist_create' %}">
+            +
+        </a>
+    </span>
+    {% for playlist in playlists %}
+    <a href="{% url 'playlists_detail' playlist.id %}">
+        {{playlist.name}}
+    </a>
+    {% endfor %}
+
+</div>
 
 <section class="my-playlists">
-    <div class="pl-main">
-        <div class="pl-img-container">
-            <img src="" alt="" class="pl-img">
+    <h1 class="edit-playlist-title">Editing:</h1>
 
+    <div class="pl-main">
+        <form action="" class="pl-edit-form" method="POST">
+            {% csrf_token %}
+        <div class="pl-edit-img-container">
+            <img src="" alt="" class="pl-img">
+            <div class="pl-img-edit">
+                Paste image address:
+                <input class="">
+            </div>
         </div>
         <div class="pl-info">
-            <div class="pl-info-content-spacer">
-                <h2 class="pl-info-title">{{ playlist.name }}</h2>
-            </div>
-            <div class="pl-info-edit">
-                <span></span>
-                <span></span>
-                <span></span>
+            <div class="pl-edit-content-spacer">
+                <input class="pl-edit-title" value="{{ playlist.name }}">
             </div>
 
-            <!-- <div class="pl-info-content-spacer">
-            {{ playlist.songs.count }} songs, {{ playlist.duration }} ms
-        </div> -->
             <div class="pl-info-author-details-container">
                 <div class="profile-img"></div>
                 <span class="pl-card-author">
@@ -35,11 +47,18 @@
                 </span>
             </div>
             <div>
-                <p class="pl-info-description">
+                <textarea cols="50" rows="10" class="pl-edit-description">
                     {{ playlist.description }}
-                </p>
+                </textarea>
+
+                <!-- <p class="pl-info-description">
+                    {{ playlist.description }}
+                </p> -->
             </div>
+            <button type="submit">Save</button>
+
         </div>
+        </form>
     </div>
     <div class="song-list">
         <table class="song-list-table">
@@ -49,6 +68,7 @@
                     <th>Artist</th>
                     <th>Album</th>
                     <th>Duration</th>
+                    <th></th>
                 </tr>
             </thead>
             <tbody>
@@ -59,6 +79,9 @@
                     <td>{{ song.artist }}</td>
                     <td>{{ song.album }}</td>
                     <td>{{ song.duration }}</td>
+                    <td>
+                        <a href="{% url 'unassoc_song' playlist.id song.id %}">X</a>
+                    </td>
                 </tr>
                 {% endfor %}
                 {% else %}
