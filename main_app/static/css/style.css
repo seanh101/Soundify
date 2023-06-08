@@ -207,7 +207,9 @@ nav::before {
     align-items: center;
     height: 100%;
     display: flex;
+    align-items: center;
     gap: 25px;
+
 
     right: 0;
 }
@@ -423,3 +425,4 @@ button.purple:hover {
         0px 2px 4px 2px rgba(122, 65, 246, 0.2),
         6px 6px 10px 2px rgba(122, 65, 246, 0.05);
 }
+

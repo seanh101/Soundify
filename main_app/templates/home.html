@@ -1,5 +1,32 @@
 {% extends 'base.html' %}
 {% block content %}
+{% load static %}
 
-<div id="mydiv"></div>
-{% endblock %}
+<div class="home-bg">
+    <div class="home one">
+        <div class="col-1">
+            <img src="{% static 'images/dots-green-bg.svg' %}" alt="" class="">
+            <div id="home-soundwave">
+            </div>
+        </div>
+
+        <div class="home col-2">
+            <h1 class="home-title">Soundify</h1>
+            <h2 class="home-subtitle">a free music app
+                using Spotify’s API</h2>
+        </div>
+    </div>
+
+    <div class="home two">
+        <div class="home col-1 neon-bg"></div>
+        <div class="home col-2">
+            <div class="home moving-bar">
+
+            </div>
+        </div>
+        <div class="home col-3"></div>
+    </div>
+
+    <div></div>
+
+    {% endblock %}
