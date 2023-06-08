@@ -176,7 +176,7 @@ li::before {
     display: flex;
     flex-wrap: wrap;
     width: 100%;
-    height: 90vh;
+    height: 100vh;
 }
 
 .flex-item-1, flex-item-2, flex-item-3 {
@@ -193,6 +193,7 @@ li::before {
     height: 50%;
     border: solid black;
     width: 55%;
+    background-color: rgba(214, 240, 80, 1);
 }
 
 .flex-item-2 {
@@ -208,10 +209,12 @@ li::before {
 .flex-item-3 {
     display: flex;
     flex-grow: 2;
+    flex-direction: column;
     width: 50%;
-    height: 50%;
+    height: 56.7%;
     padding: 2.5%;
     border: solid black;
+    background-color: rgba(155, 113, 246, 1);
 }
 
 .flex-item-about-p {
@@ -222,6 +225,18 @@ li::before {
 
 .about-soundify-title, .tech-used-title, .flex-item-2-ol, .flex-item-3 {
     align-self: flex-start;
+}
+
+.meet-the-team {
+    display: flex;
+    flex-basis: auto;
+    margin: 2.5%;
+}
+
+.team-pic {
+    display: flex;
+    align-items: center;
+    transform: translate(-6.5%, -35%)
 }
 
 /* CONFIRM DELETE PLAYLIST PAGE  */
