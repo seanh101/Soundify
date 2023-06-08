@@ -16,6 +16,8 @@
 
   <button id="play-button">Play</button>
 
+  <div id="track-list-container"></div>
+
   <script>
     window.onSpotifyWebPlaybackSDKReady = () => {
       const player = new Spotify.Player({
@@ -25,7 +27,7 @@
         },
         volume: 0.5
       });
-    }
+
       // Ready
       player.addListener('ready', ({ device_id }) => {
         console.log('Ready with Device ID', device_id);
@@ -48,6 +50,64 @@
               });
             });
         });
+
+        const togglePlayButton = document.getElementById('togglePlay');
+        togglePlayButton.addEventListener('click', () => {
+          player.togglePlay().then(() => {
+            console.log('Toggle playback state');
+          });
+        });
+
+        const playlistSelect = document.getElementById('playlist-select');
+        const playButton = document.getElementById('play-button');
+        const trackListContainer = document.getElementById('track-list-container'); // Added line
+
+        playButton.addEventListener('click', () => {
+          const selectedPlaylistId = playlistSelect.value;
+          if (selectedPlaylistId) {
+            player._options.getOAuthToken(accessToken => {
+              fetch(`https://api.spotify.com/v1/me/player/play?device_id=${device_id}`, {
+                method: 'PUT',
+                headers: {
+                  'Content-Type': 'application/json',
+                  'Authorization': `Bearer ${accessToken}`
+                },
+                body: JSON.stringify({
+                  context_uri: `spotify:playlist:${selectedPlaylistId}`
+                })
+              })
+                .then(response => response.json())
+                .then(data => {
+                  console.log('Playback started');
+                });
+            });
+          }
+        });
+
+        playlistSelect.addEventListener('change', () => {
+          const selectedPlaylistId = playlistSelect.value;
+          if (selectedPlaylistId) {
+            player._options.getOAuthToken(accessToken => {
+              fetch(`https://api.spotify.com/v1/playlists/${selectedPlaylistId}/tracks`, {
+                headers: {
+                  'Authorization': `Bearer ${accessToken}`
+                }
+              })
+                .then(response => response.json())
+                .then(data => {
+                  trackListContainer.innerHTML = ''; // Clear previous content
+                  data.items.forEach(track => {
+                    const trackItem = document.createElement('div');
+                    trackItem.textContent = track.track.name;
+                    trackListContainer.appendChild(trackItem);
+                  });
+                });
+            });
+          } else {
+            trackListContainer.innerHTML = ''; // Clear track list if no playlist selected
+          }
+        });
+
       });
 
       // Not Ready
@@ -62,5 +122,8 @@
       player.addListener('authentication_error', ({ message }) => {
         console.error(message);
       });
-    </script>
+
+      player.connect();
+    }
+  </script>
 {% endblock %}
