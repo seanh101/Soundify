@@ -1,4 +1,5 @@
 {% extends 'base.html' %}
+{% load custom_filters %}
 {% block content %}
 
 <div class="side-nav">
@@ -76,7 +77,7 @@
                     <td>{{ song.name }}</td>
                     <td>{{ song.artist }}</td>
                     <td>{{ song.album }}</td>
-                    <td>{{ song.duration }}</td>
+                    <td>{{ song.duration|duration_format }}</td>
                     <td>
                         <a href="{% url 'unassoc_song' playlist.id song.id %}">X</a>
                     </td>
