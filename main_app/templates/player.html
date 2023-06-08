@@ -1,0 +1,66 @@
+{% extends 'base.html' %}
+{% block content %}
+  <h1>Spotify Player</h1>
+
+  {{access_token}}
+
+  <button id="togglePlay">Toggle Play</button>
+
+  <script src="https://sdk.scdn.co/spotify-player.js"></script>
+
+  <div id="player"></div>
+
+  <select id="playlist-select">
+    <option value="">Select a Playlist</option>
+  </select>
+
+  <button id="play-button">Play</button>
+
+  <script>
+    window.onSpotifyWebPlaybackSDKReady = () => {
+      const player = new Spotify.Player({
+        name: 'Web Playback SDK Quick Start Player',
+        getOAuthToken: cb => {
+          cb('{{ access_token }}');
+        },
+        volume: 0.5
+      });
+    }
+      // Ready
+      player.addListener('ready', ({ device_id }) => {
+        console.log('Ready with Device ID', device_id);
+
+        // Fetch and populate the user's playlists
+        player._options.getOAuthToken(accessToken => {
+          fetch('https://api.spotify.com/v1/me/playlists', {
+            headers: {
+              'Authorization': `Bearer ${accessToken}`
+            }
+          })
+            .then(response => response.json())
+            .then(data => {
+              const playlistSelect = document.getElementById('playlist-select');
+              data.items.forEach(playlist => {
+                const option = document.createElement('option');
+                option.value = playlist.id;
+                option.textContent = playlist.name;
+                playlistSelect.appendChild(option);
+              });
+            });
+        });
+      });
+
+      // Not Ready
+      player.addListener('not_ready', ({ device_id }) => {
+        console.log('Device ID has gone offline', device_id);
+      });
+
+      player.addListener('initialization_error', ({ message }) => {
+        console.error(message);
+      });
+
+      player.addListener('authentication_error', ({ message }) => {
+        console.error(message);
+      });
+    </script>
+{% endblock %}
