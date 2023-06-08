@@ -9,6 +9,7 @@ from django.contrib.auth.forms import UserCreationForm
 from django.contrib.auth.decorators import login_required
 from django.contrib.auth.mixins import LoginRequiredMixin
 from .models import Playlist, Song
+from datetime import datetime
 import spotipy
 from spotipy.oauth2 import SpotifyOAuth
 
@@ -174,13 +175,22 @@ def add_song_and_assoc(request):
         sp = spotipy.Spotify(auth_manager=SpotifyOAuth(client_id=os.environ['CLIENT_ID'], client_secret=os.environ['SECRET_KEY'], redirect_uri='http://localhost:8000/playlists'))
         track = sp.track(track_id)
 
+        release_date = track['album']['release_date'].split("-")
+        if len(release_date) == 1:
+            # Only year value is provided, convert it to 'YYYY-01-01' format
+            release_date = f"{release_date[0]}-01-01"
+        else:
+            release_date = "-".join(release_date)
+
+        release_date = datetime.strptime(release_date, '%Y-%m-%d').date()
+
         # Check if the song already exists in the database
         existing_song = Song.objects.filter(
             name=track['name'],
             artist=track['artists'][0]['name'],
             album=track['album']['name'],
             duration=track['duration_ms'],
-            release_date=track['album']['release_date'],
+            release_date=release_date,
         ).first()
 
         if existing_song:
@@ -193,7 +203,7 @@ def add_song_and_assoc(request):
                 genre=track['album'].get('genres', ['Unknown'])[0],
                 album=track['album']['name'],
                 duration=track['duration_ms'],
-                release_date=track['album']['release_date'],
+                release_date=release_date,
             )
 
         playlist = Playlist.objects.get(id=playlist_id)
