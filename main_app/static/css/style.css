@@ -78,19 +78,20 @@ h2,
 h3,
 h4,
 h5 {
-    font-weight: 300;
     line-height: 1;
+    color: var(--purple-main);
 }
 
 h1 {
     font-size: 4.286rem;
-    color: var(--purple-shadow);
+    /* color: var(--purple-shadow); */
     font-weight: 700;
     /* letter-spacing: 0.02em; */
 }
 
 h2 {
     font-size: 2.857rem;
+    font-weight: 500;
 }
 
 h3 {
@@ -100,7 +101,9 @@ h3 {
 
 h4 {
     font-size: 1.571rem;
+    font-weight: 500;
 }
+
 
 h5 {
     font-size: 1.429rem;
@@ -271,8 +274,14 @@ footer {
     border-radius: 20px;
     padding: 35px;
     overflow-y: hidden;
-    border: 1px solid #B4B4B4;
+    border: 1px solid var(--gray);
     position: relative;
+    display: flex;
+    flex-direction: column;
+}
+
+.pl-card:hover {
+    overflow-y: scroll;
 }
 
 .pl-card a {
@@ -289,7 +298,7 @@ footer {
 
 .pl-card-title {
     display: block;
-    max-width: calc();
+    /* overflow: hidden; */
     margin: 1.25rem 0;
     margin-bottom: 1.5rem;
 }
@@ -307,7 +316,7 @@ h1 {
 }
 
 .profile-img {
-    background-color: black;
+    border: 1px solid var(--black);
     height: 18px;
     width: 18px;
     border-radius: 50%;
@@ -365,8 +374,13 @@ h1 {
     line-height: 17px;
 }
 
-button {
+button.purple {
     background: var(--purple-shadow);
+
+}
+
+button {
+    background: var(--black);
     color: var(--white);
     border-radius: 0.5rem;
     text-align: center;
@@ -384,6 +398,12 @@ button {
 }
 
 button:hover {
+    box-shadow:
+        0px 2px 4px 2px rgba(122, 65, 246, 0.2),
+        6px 6px 10px 2px rgba(122, 65, 246, 0.05);
+}
+
+button.purple:hover {
     background: var(--purple-shadow);
     color: var(--white);
     box-shadow:
