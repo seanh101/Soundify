@@ -43,6 +43,10 @@
     <a href="{% url 'songs_detail' song.id %}">
         <p>Song Title: {{ song.name }}</p>
     </a>
+    <form action="{% url 'song_delete' song.id %}" method="post" style="display: inline;">
+        {% csrf_token %}
+        <input type="submit" value="X">
+    </form>
     {% endfor %}
 
 </div>

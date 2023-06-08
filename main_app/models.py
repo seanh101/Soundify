@@ -12,10 +12,10 @@ class Song(models.Model):
     duration = models.IntegerField('Duration (ms)')
 
     def __str__(self):
-        return self.name
+        return f"{self.name} by {self.artist}" 
     
     def get_absolute_url(self):
-        return reverse('song_detail', kwargs={'pk': self.id})
+        return reverse('songs_detail', kwargs={'pk': self.id})
 
 class Playlist(models.Model):
     name = models.CharField(max_length=100)

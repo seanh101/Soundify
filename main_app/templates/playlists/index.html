@@ -1,4 +1,5 @@
 {% extends 'base.html' %}
+{% load custom_filters %}
 {% block content %}
 
 <h1 lcass="pl-index-title">My Playlists</h1>
@@ -19,7 +20,7 @@
 
             </span>
             <span class="pl-card-details">
-                {{ playlist.songs.count }} songs, {{ playlist.duration }} ms
+                {{ playlist.songs.count }} songs, {{ playlist.songs|aggregate_duration|duration_format }}
             </span>
         </div>
         <div>

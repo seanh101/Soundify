@@ -1,0 +1,16 @@
+{% extends 'base.html' %}
+{% block content %}
+
+<h1>Song Search</h1>
+
+<form method="GET" action="{% url 'song_search' %}">
+    <input type="text" name="query" placeholder="Enter a search query" required>
+    <select name="search_type">
+        <option value="track">Song</option>
+        <option value="artist">Artist</option>
+        <option value="album">Album</option>
+    </select>
+    <button type="submit">Search</button>
+</form>
+
+{% endblock %}
