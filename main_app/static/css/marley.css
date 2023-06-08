@@ -64,7 +64,8 @@ footer {
     overflow-y: hidden;
     margin: 10px;
     position: absolute;
-    top: 30%;
+    /* top: 60%; */
+    transform: translate(60%, -30%)
 }
 
 .login-btn {
@@ -82,8 +83,8 @@ footer {
     transform: translateY(-30%);
 }
 
-.col-2 {
-    margin: 15%;
+.login-form p {
+    color:#e4e4e4;
 }
 
 /* SIGNUP PAGE */
@@ -187,6 +188,12 @@ li::before {
 .second-half-of-body, .third-half-of-body {
     width: 503px;
     height: 157px;
+    background-color:rgb(133, 80, 247);
+}
+
+.third-half-of-body {
+    width: 503px;
+    height: 185px;
     background-color:rgb(133, 80, 247);
 }
 
