@@ -170,14 +170,27 @@ def add_song_and_assoc(request):
         sp = spotipy.Spotify(auth_manager=SpotifyOAuth(client_id=os.environ['CLIENT_ID'], client_secret=os.environ['SECRET_KEY'], redirect_uri='http://localhost:8000/playlists'))
         track = sp.track(track_id)
 
-        song = Song.objects.create(
+        # Check if the song already exists in the database
+        existing_song = Song.objects.filter(
             name=track['name'],
             artist=track['artists'][0]['name'],
-            genre=track['album'].get('genres', ['Unknown'])[0],
             album=track['album']['name'],
             duration=track['duration_ms'],
-            release_date=track['album']['release_date'],  
-        )
+            release_date=track['album']['release_date'],
+        ).first()
+
+        if existing_song:
+            song = existing_song
+        else:
+            # Create a new song record
+            song = Song.objects.create(
+                name=track['name'],
+                artist=track['artists'][0]['name'],
+                genre=track['album'].get('genres', ['Unknown'])[0],
+                album=track['album']['name'],
+                duration=track['duration_ms'],
+                release_date=track['album']['release_date'],
+            )
 
         playlist = Playlist.objects.get(id=playlist_id)
         playlist.songs.add(song)
