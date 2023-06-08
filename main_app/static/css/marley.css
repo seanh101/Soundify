@@ -386,3 +386,100 @@ li::before {
 .song-details-title {
     text-align: center;
 }
+
+/* CONFIRM DELETE PLAYLIST  */
+
+.delete-playlist-confirmation-container {
+    --h: 500px;
+    --w: calc(500px * 0.8);
+    /* 320 */
+    height: var(--h);
+    width: var(--w);
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    border-radius: 20px;
+    border: solid black;
+    padding: 35px;
+    overflow-y: hidden;
+    margin: auto;
+    position: relative;
+}
+
+.delete-playlist-title-div {
+    --h: 100px;
+    --w: calc(400px * 0.9);
+    /* 320 */
+    height: var(--h);
+    width: var(--w);
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    border: solid #e4e4e4;
+    text-align: center;
+    border-radius: 20px;
+    font-size: 22px;
+    overflow-y: hidden;
+    position: absolute;
+    font-weight: bold;
+    bottom: 50%;
+}
+
+.delete-playlist-message {
+    font-weight: normal;
+    border: solid #e4e4e4;
+    --h: 100px;
+    --w: calc(400px * 0.9);
+    /* 320 */
+    height: var(--h);
+    width: var(--w);
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    border: solid #e4e4e4;
+    text-align: center;
+    border-radius: 20px;
+    font-size: 22px;
+    overflow-y: hidden;
+    position: absolute;
+    font-weight: normal;
+    bottom: 30%;
+}
+
+.delete-playlist-message span {
+    font-weight: bold;
+}
+
+.delete-playlist-yes-btn {
+    position: absolute;
+    background-color: black;
+    color: white;
+    border-radius: 20px;
+    width: 35%;
+    height: 10%;
+    transform: translateX(-100%);
+}
+
+.delete-playlist-cancel-link {
+    display: flex;
+    color: white;
+    justify-content: center;
+    align-items: center;
+    position: absolute;
+    background-color: black;
+    border-radius: 20px;
+    width: 35%;
+    height: 10%;
+    transform: translateX(10%);
+}
+
+.playlist-delete-confirmation-buttons-container {
+    height: fit-content;
+    width: 100%;
+}
+
+.delete-song-confirmation-form {
+    height: fit-content;
+    width: 100%;
+    display: block;
+}
