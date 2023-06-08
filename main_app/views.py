@@ -134,7 +134,7 @@ def song_search_page(request):
 def song_search(request):
     query_string = request.GET.get('query')
     search_type = request.GET.get('search_type')
-    playlists = Playlist.objects.all()
+    playlists = Playlist.objects.filter(user=request.user)
     sp = spotipy.Spotify(auth_manager=SpotifyOAuth(client_id=os.environ['CLIENT_ID'], client_secret=os.environ['SECRET_KEY'], redirect_uri='http://localhost:8000/playlists'))
     if search_type == 'artist':
         results = sp.search(q=query_string, type='artist', limit=50)
