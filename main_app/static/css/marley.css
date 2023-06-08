@@ -83,6 +83,7 @@ footer {
 }
 
 /* SIGNUP PAGE */
+
 .signup-container {
     --h: 550px;
     --w: calc(800px * 0.8);
@@ -93,7 +94,7 @@ footer {
     justify-content: center;
     align-items: center;
     border-radius: 20px;
-    border: solid black;
+    background-color:rgba(245, 245, 245, 1);
     padding: 35px;
     overflow-y: hidden;
     margin: auto;
@@ -239,9 +240,6 @@ li::before {
     transform: translate(-6.5%, -35%)
 }
 
-/* CONFIRM DELETE PLAYLIST PAGE  */
-
-
 /* CONFIRM DELETE SONG PAGE  */
 .delete-song-confirmation-container {
     --h: 500px;
@@ -375,6 +373,12 @@ li::before {
 
 /* SONG INDEX PAGE  */
 
-.app-body {
+.all-songs-container {
     border: solid #e4e4e4;
+}
+
+/* SONG DETAIL PAGE  */
+
+.song-details-title {
+    text-align: center;
 }

@@ -1,8 +1,18 @@
 {% extends 'base.html' %}
 {% block content %}
-<div class="app-body">
-<h1>Song Details</h1>
 
+<div class="side-nav">
+    <span class="side-nav-title">My Songs</span>
+    {% for song in playlist %}
+    <a href="{% url 'songs_detail' song.id %}">
+        {{song.name}}
+    </a>
+    {% endfor %}
+</div>
+
+<h1 class="song-details-title">Song Details</h1>
+
+<div class="app-body">
 <p>Title: {{ song.name }}</p>
 <p>Artist: {{ song.artist }}</p>
 <p>Genre: {{ song.genre }}</p>
