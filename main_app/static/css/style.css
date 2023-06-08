@@ -6,11 +6,11 @@
 
     /* Colors */
     --purple-main: #9B71F6;
-    --purple-shadow: #8550F7;
+    --purple-shadow: #6929F5;
     --neon-main: #D6F050;
     --neon-highlight: #EAF9A9;
     --gray: #ccc;
-    --white: #fff;
+    --white: #F5F5F5;
     --black: #1E1E1E;
 
 }
@@ -67,7 +67,7 @@ html {
 
 body {
     text-rendering: optimizeLegibility;
-    background: white;
+    background: var(--white);
     line-height: 1.75;
     color: #000000;
     max-height: 100vh;
@@ -84,7 +84,7 @@ h5 {
 
 h1 {
     font-size: 4.286rem;
-    color: var(--purple-main);
+    color: var(--purple-shadow);
     font-weight: 700;
     /* letter-spacing: 0.02em; */
 }
@@ -153,19 +153,21 @@ th {
 /* -------------------- End boilerplate -------------------- */
 
 nav {
-    width: fit-content;
+    width: 100%;
     height: fit-content;
 }
 
 nav::before {
     content: "";
 
-    background-color: #c2c2c2;
-    width: calc(100vw - var(--gap) * 2);
+    background-color: var(--gray);
+    /* width: calc(100vw - var(--gap) * 2); */
+    width: 100vw;
     height: 1px;
 
     bottom: 0;
-    left: var(--gap);
+    /* left: var(--gap); */
+    left: 0;
     right: var(--gap);
 
     opacity: 1;
@@ -216,14 +218,14 @@ header {
     height: var(--header-height);
     width: 100vw;
     padding: 35px var(--gap);
-    background: white;
+    background: var(--white);
     z-index: 10;
 }
 
 footer {
     width: 100vw;
     padding: 35px var(--gap);
-    background: white;
+    background: var(--white);
 }
 
 .side-nav {
@@ -232,9 +234,9 @@ footer {
     width: var(--side-nav-width);
     /* padding-left: var(--gap); */
     padding-right: 1.5rem;
-    padding-top: 25px;
+    padding-top: 0px;
 
-    border-right: 1px solid black;
+    border-right: 1px solid var(--gray);
     min-height: 100vh;
     display: flex;
     flex-direction: column;
@@ -361,4 +363,30 @@ h1 {
     font-weight: 400;
     font-size: 14px;
     line-height: 17px;
+}
+
+button {
+    background: var(--purple-shadow);
+    color: var(--white);
+    border-radius: 0.5rem;
+    text-align: center;
+    padding: 0.75rem 2rem;
+    border: 0;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    font-weight: 500;
+    letter-spacing: 0.02em;
+    font-size: 1rem;
+
+    transition: all 0.2s ease-in-out;
+
+}
+
+button:hover {
+    background: var(--purple-shadow);
+    color: var(--white);
+    box-shadow:
+        0px 2px 4px 2px rgba(122, 65, 246, 0.2),
+        6px 6px 10px 2px rgba(122, 65, 246, 0.05);
 }

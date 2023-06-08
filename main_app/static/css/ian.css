@@ -6,8 +6,9 @@
     --purple-highlight: #CEB9FB;
 
 }
-h1 {
-}
+
+h1 {}
+
 /* *, header, nav {
     background: rgb(246, 246, 246);
 } */
@@ -31,6 +32,13 @@ h1 {
 
 .side-nav-title {
     font-size: 1.2rem;
+    font-weight: 800;
+    color: var(--purple-main);
+    letter-spacing: 0.02em;
+}
+
+.side-nav a:hover {
+    background: var(--neon-main);
 }
 
 .pl-main {
@@ -111,17 +119,18 @@ table {
 
 .song-list-table tbody tr:hover td {
     background: var(--neon-main);
-    /* color: white; */
+    /* color: var(--white); */
 }
 
 .song-list-table tbody tr:hover td a {
-    /* color: white; */
+    /* color: var(--white); */
 }
 
 .song-list-table tbody td:last-child {
     color: var(--purple-shadow);
 
 }
+
 .song-list-table tbody td:first-child {
     padding-left: 2rem;
 }
@@ -171,7 +180,7 @@ th {
 }
 
 .pl-img-edit label {
-    color: white;
+    color: var(--white);
     line-height: 1;
     margin-bottom: .75rem;
 }
@@ -226,7 +235,7 @@ th {
 }
 
 .pl-info-edit-popup a {
-    color: white;
+    color: var(--white);
     display: block;
 }
 
@@ -256,7 +265,7 @@ th {
 
 
 a.light {
-    color: white;
+    color: var(--white);
 }
 
 a.light:hover {
@@ -277,4 +286,9 @@ td a:hover {
 
 .so-index-title {
     width: 100%;
+}
+
+#mydiv {
+    width: 600px;
+    height: 200px;
 }
