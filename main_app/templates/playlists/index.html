@@ -7,8 +7,8 @@
 <div class="pl-card-container">
 
     {% for playlist in playlists %}
-
-    <div class="pl-card">
+<div class="scrollbox">
+    <div class="pl-card scrollbox-content">
         <a href="{% url 'playlists_detail' playlist.id %}">
         </a>
         <img src="../../static/images/playlistexample.png" alt="" class="img">
@@ -36,6 +36,7 @@
         </div>
 
     </div>
+</div>
     {% endfor %}
 </div>
 {% endblock %}
