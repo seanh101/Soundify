@@ -159,7 +159,7 @@ th {
 
 nav {
     width: 100%;
-    height: fit-content;
+    height: 100%;
 }
 
 nav::before {
@@ -195,7 +195,11 @@ nav::before {
 }
 
 .logo {
-    max-height: 20px;
+    max-height: 40px;
+   
+        background: var(--purple-main);
+        border-radius: 4px;
+
 }
 
 .nav-links-container {
@@ -204,8 +208,7 @@ nav::before {
     height: 100%;
     display: flex;
     gap: 25px;
-    justify-self: flex-end;
-    position: inline-block;
+  
     right: 0;
 }
 
