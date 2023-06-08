@@ -20,6 +20,7 @@ urlpatterns = [
     path('spotify/auth', views.spotify_callback, name='spotify_callback'),
     path('songs/add/<str:track_id>/', views.add_song, name='add_song'),
     path('songs/assoc_song/', views.assoc_song, name='assoc_song'),
+    path('add_song_and_assoc/', views.add_song_and_assoc, name='add_song_and_assoc'),
     
     path('accounts/signup/', views.signup, name='signup'),
     

@@ -4,7 +4,7 @@ from django.urls import reverse
 from django.views.generic.edit import CreateView, UpdateView, DeleteView
 from django.views.generic import ListView, DetailView
 from django.contrib.auth import login
-from django.http import HttpResponse, request
+from django.http import HttpResponse, request, HttpResponseRedirect
 from django.contrib.auth.forms import UserCreationForm
 from django.contrib.auth.decorators import login_required
 from django.contrib.auth.mixins import LoginRequiredMixin
@@ -130,6 +130,7 @@ def song_search_page(request):
 def song_search(request):
     query_string = request.GET.get('query')
     search_type = request.GET.get('search_type')
+    playlists = Playlist.objects.all()
     sp = spotipy.Spotify(auth_manager=SpotifyOAuth(client_id=os.environ['CLIENT_ID'], client_secret=os.environ['SECRET_KEY'], redirect_uri='http://localhost:8000/playlists'))
     if search_type == 'artist':
         results = sp.search(q=query_string, type='artist', limit=50)
@@ -140,7 +141,8 @@ def song_search(request):
 
     return render(request, 'songs/search_results.html', {
         'results': results,
-        'search_type': search_type
+        'search_type': search_type,
+        'playlists': playlists
     })
 
 
@@ -159,3 +161,26 @@ def add_song(request, track_id):
     )
 
     return redirect('songs_index')
+
+def add_song_and_assoc(request):
+    if request.method == 'POST':
+        playlist_id = request.POST.get('playlist')
+        track_id = request.POST.get('track_id')
+
+        sp = spotipy.Spotify(auth_manager=SpotifyOAuth(client_id=os.environ['CLIENT_ID'], client_secret=os.environ['SECRET_KEY'], redirect_uri='http://localhost:8000/playlists'))
+        track = sp.track(track_id)
+
+        song = Song.objects.create(
+            name=track['name'],
+            artist=track['artists'][0]['name'],
+            genre=track['album'].get('genres', ['Unknown'])[0],
+            album=track['album']['name'],
+            duration=track['duration_ms'],
+            release_date=track['album']['release_date'],  
+        )
+
+        playlist = Playlist.objects.get(id=playlist_id)
+        playlist.songs.add(song)
+
+        return HttpResponseRedirect(request.META.get('HTTP_REFERER'))
+
