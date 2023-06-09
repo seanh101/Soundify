@@ -1,18 +1,27 @@
 {% extends 'base.html' %}
 {% block content %}
   <h1>Spotify Player</h1>
+
   {{access_token}}
+
   <button id="togglePlay">Toggle Play</button>
   <button id="previousButton">Previous</button>
   <button id="nextButton">Next</button>
-  <button id="stopButton">Stop</button>
+  <button id="stopButton">Stop</button> 
+
+
   <script src="https://sdk.scdn.co/spotify-player.js"></script>
+
   <div id="player"></div>
+
   <select id="playlist-select">
     <option value="">Select a Playlist</option>
   </select>
+
   <button id="play-button">Play</button>
+
   <div id="track-list-container"></div>
+
   <script>
     window.onSpotifyWebPlaybackSDKReady = () => {
       const player = new Spotify.Player({
@@ -22,9 +31,11 @@
         },
         volume: 0.5
       });
+
       // Ready
       player.addListener('ready', ({ device_id }) => {
         console.log('Ready with Device ID', device_id);
+
         // Fetch and populate the user's playlists
         player._options.getOAuthToken(accessToken => {
           fetch('https://api.spotify.com/v1/me/playlists', {
@@ -43,18 +54,21 @@
               });
             });
         });
+
         const togglePlayButton = document.getElementById('togglePlay');
         togglePlayButton.addEventListener('click', () => {
           player.togglePlay().then(() => {
             console.log('Toggle playback state');
           });
         });
+
         const playlistSelect = document.getElementById('playlist-select');
         const playButton = document.getElementById('play-button');
         const trackListContainer = document.getElementById('track-list-container');
         const previousButton = document.getElementById('previousButton');
         const nextButton = document.getElementById('nextButton');
-        const stopButton = document.getElementById('stopButton');
+        const stopButton = document.getElementById('stopButton'); 
+
         playButton.addEventListener('click', () => {
           const selectedPlaylistId = playlistSelect.value;
           if (selectedPlaylistId) {
@@ -76,6 +90,7 @@
             });
           }
         });
+
         playlistSelect.addEventListener('change', () => {
           const selectedPlaylistId = playlistSelect.value;
           if (selectedPlaylistId) {
@@ -99,32 +114,39 @@
             trackListContainer.innerHTML = '';
           }
         });
+
         previousButton.addEventListener('click', () => {
           player.previousTrack().then(() => {
             console.log('Previous track');
           });
         });
+
         nextButton.addEventListener('click', () => {
           player.nextTrack().then(() => {
             console.log('Next track');
           });
         });
+
         stopButton.addEventListener('click', () => {
           player.pause().then(() => {
             console.log('Playback stopped');
           });
         });
       });
+
       // Not Ready
       player.addListener('not_ready', ({ device_id }) => {
         console.log('Device ID has gone offline', device_id);
       });
+
       player.addListener('initialization_error', ({ message }) => {
         console.error(message);
       });
+
       player.addListener('authentication_error', ({ message }) => {
         console.error(message);
       });
+
       player.connect();
     }
   </script>
