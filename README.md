@@ -3,7 +3,7 @@
 Screenshots
 
   ![Home](./images/Soundify_homepage.png)
-  ![Login](./images/login_page.jpg)
+  ![Login](./images/Soundify_login.png)
   ![About](./images/Soundify_about.png)
 
 
@@ -48,8 +48,8 @@ Technologies used:
 
 
 Getting Started:
-  ![Click to View Project Planning](https://trello.com/b/tzhmkpLU/project-3-soundify)
-  ![Click to go to Soundify]()
+  [Click to View Project Planning](https://trello.com/b/tzhmkpLU/project-3-soundify)
+  [Click to go to Soundify](https://soundify-ahje.onrender.com/)
 
 Next Steps:
   - Customize the playlist to show which song is being

@@ -123,7 +123,7 @@ def unassoc_song(request, playlist_id, song_id):
 def spotify_connect(request):
     sp = spotipy.Spotify(auth_manager=SpotifyOAuth(client_id = os.environ['CLIENT_ID'],
         client_secret = os.environ['SECRET_KEY'],
-        redirect_uri='http://localhost:8000/spotify/auth',
+        redirect_uri='https://soundify-ahje.onrender.com/spotify/auth',
         scope='user-read-playback-state user-modify-playback-state user-read-currently-playing app-remote-control streaming playlist-read-private playlist-read-collaborative playlist-modify-private playlist-modify-public user-read-playback-position user-top-read user-read-recently-played user-library-modify user-library-read'))
     auth_url = sp.auth_manager.get_authorize_url()
     return redirect(auth_url)
@@ -133,7 +133,7 @@ def spotify_callback(request):
     sp_oauth = SpotifyOAuth(
         client_id=os.environ['CLIENT_ID'],
         client_secret=os.environ['SECRET_KEY'],
-        redirect_uri='http://localhost:8000/spotify/auth',
+        redirect_uri='https://soundify-ahje.onrender.com/spotify/auth',
         scope='user-read-playback-state user-modify-playback-state user-read-currently-playing app-remote-control streaming playlist-read-private playlist-read-collaborative playlist-modify-private playlist-modify-public user-read-playback-position user-top-read user-read-recently-played user-library-modify user-library-read'
     )
     token_info = sp_oauth.get_access_token(code)
@@ -154,7 +154,7 @@ def song_search(request):
     query_string = request.GET.get('query')
     search_type = request.GET.get('search_type')
     playlists = Playlist.objects.filter(user=request.user)
-    sp = spotipy.Spotify(auth_manager=SpotifyOAuth(client_id=os.environ['CLIENT_ID'], client_secret=os.environ['SECRET_KEY'], redirect_uri='http://localhost:8000/playlists'))
+    sp = spotipy.Spotify(auth_manager=SpotifyOAuth(client_id=os.environ['CLIENT_ID'], client_secret=os.environ['SECRET_KEY'], redirect_uri='http://https://soundify-ahje.onrender.com/playlists'))
     if search_type == 'artist':
         results = sp.search(q=query_string, type='artist', limit=50)
     elif search_type == 'album':
@@ -171,7 +171,7 @@ def song_search(request):
 
 @login_required
 def add_song(request, track_id):
-    sp = spotipy.Spotify(auth_manager=SpotifyOAuth(client_id=os.environ['CLIENT_ID'], client_secret=os.environ['SECRET_KEY'], redirect_uri='http://localhost:8000/playlists'))
+    sp = spotipy.Spotify(auth_manager=SpotifyOAuth(client_id=os.environ['CLIENT_ID'], client_secret=os.environ['SECRET_KEY'], redirect_uri='http://https://soundify-ahje.onrender.com/playlists'))
     track = sp.track(track_id)
 
     song = Song.objects.create(
@@ -190,7 +190,7 @@ def add_song_and_assoc(request):
         playlist_id = request.POST.get('playlist')
         track_id = request.POST.get('track_id')
 
-        sp = spotipy.Spotify(auth_manager=SpotifyOAuth(client_id=os.environ['CLIENT_ID'], client_secret=os.environ['SECRET_KEY'], redirect_uri='http://localhost:8000/playlists'))
+        sp = spotipy.Spotify(auth_manager=SpotifyOAuth(client_id=os.environ['CLIENT_ID'], client_secret=os.environ['SECRET_KEY'], redirect_uri='http://https://soundify-ahje.onrender.com/playlists'))
         track = sp.track(track_id)
 
         release_date = track['album']['release_date'].split("-")
@@ -244,7 +244,7 @@ def get_user_token(request):
 def play_song(request):
     access_token = get_user_access_token(request.user)
     return render(request, 'player.html', {'access_token': access_token})
-    # sp = spotipy.Spotify(auth_manager=SpotifyOAuth(client_id=os.environ['CLIENT_ID'], client_secret=os.environ['SECRET_KEY'], redirect_uri='http://localhost:8000/spotify/auth'))
+    # sp = spotipy.Spotify(auth_manager=SpotifyOAuth(client_id=os.environ['CLIENT_ID'], client_secret=os.environ['SECRET_KEY'], redirect_uri='http://https://soundify-ahje.onrender.com/spotify/auth'))
     # song = get_object_or_404(Song, id=song_id)
     # track_id = song.track_id
     # sp.start_playback(uris=[track_id])
