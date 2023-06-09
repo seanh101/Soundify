@@ -51,7 +51,7 @@
 }
 
 .side-nav a:first-child:hover {
-   text-decoration: underline;
+    text-decoration: underline;
 }
 
 
@@ -328,6 +328,14 @@ td a:hover {
     width: 600px;
     height: 100%;
     background: var(--purple-main);
+    position: relative;
+    overflow: hidden;
+}
+
+#home-soundwave canvas {
+    position: absolute;
+    bottom: 0;
+
 }
 
 ::-webkit-scrollbar {
@@ -449,6 +457,7 @@ div.two {
     display: flex;
     flex-direction: column;
     gap: 0;
+    max-width: 550px;
 }
 
 .col-2 {
@@ -536,5 +545,5 @@ input:focus {
 }
 
 canvas {
-    overflow:visible;
+    overflow: visible;
 }
