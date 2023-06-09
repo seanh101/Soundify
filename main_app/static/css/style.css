@@ -4,6 +4,9 @@
     --header-height: 100px;
     --side-nav-width: 200px;
 
+    --app-body-margin: calc(var(--header-height));
+
+
     /* Colors */
     --purple-main: #9B71F6;
     --purple-shadow: #6929F5;
@@ -272,6 +275,7 @@ footer {
     flex-wrap: wrap;
 }
 
+
 .pl-index-title {
     width: 90vw;
 }
@@ -412,7 +416,7 @@ button {
 
 button:hover {
     background: #2e2e2e;
-    color:var(--neon-highlight);
+    color: var(--neon-highlight);
     box-shadow:
         1px 1px 4px 2px rgba(122, 65, 246, 0.2),
         5px 5px 10px 2px rgba(122, 65, 246, 0.15);
@@ -426,3 +430,40 @@ button.purple:hover {
         6px 6px 10px 2px rgba(122, 65, 246, 0.05);
 }
 
+.song-add-form {
+    display: flex;
+    flex-direction: row;
+    gap: 1rem;
+}
+
+td.song-add {
+    height: 1.5rem;
+}
+
+td.song-add form button{
+    background: rgba(0, 0, 0, 0);
+    border: 1px solid var(--purple-main);
+    color: var(--purple-main);
+}
+
+td.song-add:hover form button {
+    transition: opacity 0.2s ease, background 0s;
+    opacity: 1;
+    background: rgba(0, 0, 0, 0);
+    border: 1px solid var(--purple-main);
+    color: var(--purple-main);
+}
+
+td.song-add:hover form button:hover {
+    background: var(--black);
+    color: var(--neon-highlight);
+}
+
+
+.song-add-form button {
+ opacity: 0;
+}
+
+select {
+    background: rgba(0, 0, 0, 0);
+}

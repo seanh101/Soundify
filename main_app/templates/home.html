@@ -11,9 +11,17 @@
         </div>
 
         <div class="home col-2">
-            <h1 class="home-title">Soundify</h1>
-            <h2 class="home-subtitle">a free music app
-                using Spotify’s API</h2>
+            <div class="col-2-content">
+                
+                <!-- <h1 class="home-title">Soundify</h1> -->
+                <img src="{% static 'images/home_title.svg' %}" alt="" class="home-title">
+                <h2 class="home-subtitle">a free music app</h2>
+    
+                <h2 class="home-subtitle">using Spotify’s API</h2>
+
+                <p>Music is the one thing on this planet that brings people together. Over 616 million peole worldwide subscribe to a music streaming service to discover new music and listen to their favorite artists. Music streaming service subscribers have increased 28 times over in the last decade. </p>
+            </div>
+
         </div>
     </div>
 
@@ -21,12 +29,13 @@
         <div class="home col-1 neon-bg"></div>
         <div class="home col-2">
             <div class="home moving-bar">
-
             </div>
         </div>
         <div class="home col-3"></div>
     </div>
 
     <div></div>
+
+    <script src="{% static 'js/home.js' %}"> </script>
 
     {% endblock %}
