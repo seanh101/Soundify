@@ -30,3 +30,9 @@ class Playlist(models.Model):
     
     def get_absolute_url(self):
         return reverse('playlists_detail', kwargs={'playlist_id': self.id})
+    
+class UserProfile(models.Model):
+    user = models.OneToOneField(User, on_delete=models.CASCADE)
+    spotify_access_token = models.TextField(null=True, blank=True)
+    def __str__(self):
+        return self.user.username

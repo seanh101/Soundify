@@ -4,11 +4,11 @@ from django.urls import reverse
 from django.views.generic.edit import CreateView, UpdateView, DeleteView
 from django.views.generic import ListView, DetailView
 from django.contrib.auth import login
-from django.http import HttpResponse, request, HttpResponseRedirect
+from django.http import HttpResponse, request, HttpResponseRedirect, JsonResponse
 from django.contrib.auth.forms import UserCreationForm
 from django.contrib.auth.decorators import login_required
 from django.contrib.auth.mixins import LoginRequiredMixin
-from .models import Playlist, Song
+from .models import Playlist, Song, UserProfile
 from datetime import datetime
 import spotipy
 from spotipy.oauth2 import SpotifyOAuth
@@ -29,10 +29,12 @@ def playlists_index(request):
 @login_required
 def playlists_detail(request, playlist_id):
     playlist = Playlist.objects.get(id=playlist_id)
+    songs = playlist.songs.all()
     playlists = Playlist.objects.filter(user=request.user)
 
     return render(request, 'playlists/detail.html', {
         'playlist': playlist,
+        'songs': songs,
         'playlists': playlists
     })
 
@@ -128,8 +130,21 @@ def spotify_connect(request):
 
 def spotify_callback(request):
     code = request.GET.get('code')
-    sp_oauth = SpotifyOAuth(client_id=os.environ['CLIENT_ID'], client_secret=os.environ['SECRET_KEY'], redirect_uri='http://localhost:8000/spotify/auth')
+    sp_oauth = SpotifyOAuth(
+        client_id=os.environ['CLIENT_ID'],
+        client_secret=os.environ['SECRET_KEY'],
+        redirect_uri='http://localhost:8000/spotify/auth',
+        scope='user-read-playback-state user-modify-playback-state user-read-currently-playing app-remote-control streaming playlist-read-private playlist-read-collaborative playlist-modify-private playlist-modify-public user-read-playback-position user-top-read user-read-recently-played user-library-modify user-library-read'
+    )
     token_info = sp_oauth.get_access_token(code)
+
+    access_token = token_info['access_token']
+
+    # Create or update the user profile with the new access token
+    user_profile, created = UserProfile.objects.get_or_create(user=request.user)
+    user_profile.spotify_access_token = access_token
+    user_profile.save()
+
     return redirect('playlists_index')
 
 def song_search_page(request):
@@ -214,3 +229,26 @@ def add_song_and_assoc(request):
 
         return HttpResponseRedirect(request.META.get('HTTP_REFERER'))
 
+def get_user_access_token(user):
+    try:
+        profile = UserProfile.objects.get(user=user)
+        return profile.spotify_access_token
+    except UserProfile.DoesNotExist:
+        return None
+
+
+def get_user_token(request):
+    access_token = get_user_access_token(request.user)
+    return JsonResponse({'access_token': access_token})
+
+def play_song(request):
+    access_token = get_user_access_token(request.user)
+    return render(request, 'player.html', {'access_token': access_token})
+    # sp = spotipy.Spotify(auth_manager=SpotifyOAuth(client_id=os.environ['CLIENT_ID'], client_secret=os.environ['SECRET_KEY'], redirect_uri='http://localhost:8000/spotify/auth'))
+    # song = get_object_or_404(Song, id=song_id)
+    # track_id = song.track_id
+    # sp.start_playback(uris=[track_id])
+    # return redirect('songs_detail', song_id=song_id)
+
+def spotify_player(request):
+    return render(request, 'player.html')
