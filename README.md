@@ -1,13 +1,13 @@
 # Soundify
 
-Screenshots
+# Screenshots
 
   ![Home](./images/Soundify_homepage.png)
   ![Login](./images/Soundify_login.png)
   ![About](./images/Soundify_about.png)
 
 
-Soundify - Turn on the sound
+# Soundify - Turn on the sound
 
 Music is the one thing on this planet that brings people together. Over 616 million peole worldwide subscribe to a music streaming service to discover new music and listen to their favorite artists. Music streaming service subscribers have increased 28 times over in the last decade. 
 
@@ -30,7 +30,7 @@ Soundify's utilities are well tested and continuously maintained. Every contribu
 
 Users will log in to their account that the user has created to ensure privacy informtion is protected.
 
-Technologies used:
+# Technologies used:
 
   - Python
   - Django
@@ -47,11 +47,11 @@ Technologies used:
 
 
 
-Getting Started:
+# Getting Started:
   [Click to View Project Planning](https://trello.com/b/tzhmkpLU/project-3-soundify)
   [Click to go to Soundify](https://soundify-ahje.onrender.com/)
 
-Next Steps:
+# Next Steps:
   - Customize the playlist to show which song is being
     played while being highlighted or show a speaker beside the track
   - Add the ability to see other users playlists
