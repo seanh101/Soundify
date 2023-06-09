@@ -48,8 +48,8 @@ Technologies used:
 
 
 Getting Started:
-  ![Click to View Project Planning](https://trello.com/b/tzhmkpLU/project-3-soundify)
-  ![Click to go to Soundify]()
+  [Click to View Project Planning](https://trello.com/b/tzhmkpLU/project-3-soundify)
+  [Click to go to Soundify](https://soundify-ahje.onrender.com/songs/)
 
 Next Steps:
   - Customize the playlist to show which song is being
