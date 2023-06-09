@@ -34,15 +34,9 @@
     <div class="second-half-of-body">
       <div class="second-half-of-body-text">
         <h3 class="second-half-of-body-p">Welcome Back</h3>
-        <h5>Continue your listening journey with us.</h5>
       </div>
     </div> 
-    <div class="third-half-of-body"></div> 
-  </div>
-  
-  <div class="col-2">
-    <div class="login-container">
-      <div class="login-title-div">Log in to Soundify</div>
+    <div class="third-half-of-body">
         <div class="login-input-field-container">
           <form class="login-form" action="{% url 'login' %}" method="POST">
             {% csrf_token %}
@@ -52,6 +46,7 @@
           </form>
         </div>
     </div>
+    </div> 
   </div>
   
   </div>

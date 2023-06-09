@@ -9,6 +9,7 @@ footer {
 }
 
 /* LOGIN PAGE  */
+
 .login-container * {
     font-weight: bold;
 }
@@ -64,7 +65,8 @@ footer {
     overflow-y: hidden;
     margin: 10px;
     position: absolute;
-    top: 30%;
+    /* top: 60%; */
+    transform: translate(60%, -44%)
 }
 
 .login-btn {
@@ -82,8 +84,12 @@ footer {
     transform: translateY(-30%);
 }
 
-.col-2 {
-    margin: 15%;
+.login-form p {
+    color:#e4e4e4;
+}
+
+.p5Canvas {
+    margin-top: 84.5px;
 }
 
 /* SIGNUP PAGE */
@@ -190,6 +196,13 @@ li::before {
     background-color:rgb(133, 80, 247);
 }
 
+.third-half-of-body {
+    width: 503px;
+    height: 185px;
+    background-color:rgb(133, 80, 247);
+    border-radius: 0px 0px 20px 20px;
+}
+
 .second-half-of-body {
     text-align: center; 
     color: white;
@@ -197,7 +210,7 @@ li::before {
 
 .second-half-of-body-text {
     width: 70%;
-    transform: translate(23%, -22%); 
+    transform: translateX(23%); 
 }
 
 .second-half-of-body-p {
