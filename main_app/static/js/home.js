@@ -1,19 +1,23 @@
+
+
+
 // Based on The Coding Train: Coding Challenge #136.1: Polar Perlin Noise Loops
 // https://www.youtube.com/watch?v=ZI1dmHv3MeM
 let phase = 0;
 let noiseMax = 1;
 let slider;
 let zOff = 0;
-let canvasY = window.innerHeight * .64;
+
+let canvasY = window.innerHeight * .8;
+let canvasX = window.innerWidth * .6;
+
 
 function setup() {
-    let canvasLogin = createCanvas(600, canvasY);
+    let canvasLogin = createCanvas(canvasX, canvasY);
     canvasLogin.parent("home-soundwave");
 
     // let canvasHome = createCanvas(600, 200);
     // canvasHome.parent("home-soundwave");
-
-
 
     background("#e9e0f0");
 
