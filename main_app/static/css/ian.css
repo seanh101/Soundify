@@ -45,14 +45,23 @@
 
 .side-nav a {
     padding: 10px 0;
-    padding-left: 7px;
+    padding-right: 7px;
     transition: 0.2s ease;
     border-radius: 6px;
+}
+
+.side-nav a:first-child:hover {
+   text-decoration: underline;
 }
 
 
 .side-nav a:hover {
     background: var(--neon-main);
+    background: rgba(0, 0, 0, 0);
+}
+
+.add-playlist:hover {
+    text-decoration: underline;
 }
 
 .pl-main {
