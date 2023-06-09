@@ -39,7 +39,6 @@ Technologies used:
   - JS
   - Spotify API
   - PostgreSQL
-  - AWS S3
   - GitHub
   - Trello
   - Figma
