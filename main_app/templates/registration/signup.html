@@ -1,61 +1,66 @@
 {% extends 'base.html' %}
 {% block content %}
+{% load static %}
+
 
 <div class="signup-grid-container">
 
-<div class="col-1">
-  <div class="svg-1-purple">
-    <svg width="503" height="157" viewBox="0 0 503 157" fill="none" xmlns="http://www.w3.org/2000/svg">
-      <path d="M0 20C0 8.95431 8.95431 0 20 0H483C494.046 0 503 8.95431 503 20V156.173H0V20Z" fill="#8550F7"/>
-      <ellipse cx="43.5035" cy="23.5197" rx="9.96937" ry="10.3488" fill="#D6F050"/>
-      <ellipse cx="92.4432" cy="27.283" rx="13.5946" ry="14.1121" fill="#D6F050"/>
-      <mask id="mask0_142_1703" style="mask-type:alpha" maskUnits="userSpaceOnUse" x="0" y="0" width="503" height="157">
-      <path d="M0 20C0 8.95431 8.95431 0 20 0H483C494.046 0 503 8.95431 503 20V156.173H0V20Z" fill="#D6F050"/>
-      </mask>
-      <g mask="url(#mask0_142_1703)">
-      <ellipse cx="530.189" cy="6.58556" rx="41.6901" ry="43.277" fill="#D6F050"/>
-      <ellipse cx="19.9383" cy="-0.940681" rx="13.5946" ry="14.1121" fill="#D6F050"/>
-      </g>
-      <ellipse cx="102.412" cy="56.448" rx="5.43784" ry="5.64482" fill="#D6F050"/>
-      <ellipse cx="432.307" cy="75.2645" rx="9.06306" ry="9.40804" fill="#D6F050"/>
-      <ellipse cx="470.826" cy="23.9905" rx="7.7036" ry="7.99683" fill="#D6F050"/>
-      <ellipse cx="143.197" cy="76.205" rx="31.7207" ry="32.9281" fill="#D6F050"/>
-      <ellipse cx="195.761" cy="96.9023" rx="8.15676" ry="8.46723" fill="#D6F050"/>
-      <ellipse cx="214.795" cy="114.778" rx="10.8757" ry="11.2896" fill="#D6F050"/>
-      <ellipse cx="326.27" cy="96.9026" rx="5.43784" ry="5.64482" fill="#D6F050"/>
-      <ellipse cx="460.405" cy="56.448" rx="5.43784" ry="5.64482" fill="#D6F050"/>
-      <ellipse cx="245.157" cy="99.2548" rx="6.7973" ry="7.05603" fill="#D6F050"/>
-      <ellipse cx="307.691" cy="126.538" rx="6.7973" ry="7.05603" fill="#D6F050"/>
-      <ellipse cx="276.423" cy="107.251" rx="18.1261" ry="18.8161" fill="#D6F050"/>
-      <ellipse cx="402.854" cy="63.5038" rx="14.0477" ry="14.5825" fill="#D6F050"/>
-      <ellipse cx="353.459" cy="62.093" rx="21.7514" ry="22.5793" fill="#D6F050"/>
-      </svg>
-  </div> 
-  <div class="second-half-of-body">
-    <div class="second-half-of-body-text">
-      <h3 class="second-half-of-body-p">Start your listening journey with us.</h3>
-      <h5>Discover GA's best community of playlists and songs</h5>
+  <div class="half col-1">
+    <div class="svg-1-purple">
+      <!-- <svg width="503" height="157" viewBox="0 0 503 157" fill="none" xmlns="http://www.w3.org/2000/svg">
+        <path d="M0 20C0 8.95431 8.95431 0 20 0H483C494.046 0 503 8.95431 503 20V156.173H0V20Z" fill="#8550F7" />
+        <ellipse cx="43.5035" cy="23.5197" rx="9.96937" ry="10.3488" fill="#D6F050" />
+        <ellipse cx="92.4432" cy="27.283" rx="13.5946" ry="14.1121" fill="#D6F050" />
+        <mask id="mask0_142_1703" style="mask-type:alpha" maskUnits="userSpaceOnUse" x="0" y="0" width="503"
+          height="157">
+          <path d="M0 20C0 8.95431 8.95431 0 20 0H483C494.046 0 503 8.95431 503 20V156.173H0V20Z" fill="#D6F050" />
+        </mask>
+        <g mask="url(#mask0_142_1703)">
+          <ellipse cx="530.189" cy="6.58556" rx="41.6901" ry="43.277" fill="#D6F050" />
+          <ellipse cx="19.9383" cy="-0.940681" rx="13.5946" ry="14.1121" fill="#D6F050" />
+        </g>
+        <ellipse cx="102.412" cy="56.448" rx="5.43784" ry="5.64482" fill="#D6F050" />
+        <ellipse cx="432.307" cy="75.2645" rx="9.06306" ry="9.40804" fill="#D6F050" />
+        <ellipse cx="470.826" cy="23.9905" rx="7.7036" ry="7.99683" fill="#D6F050" />
+        <ellipse cx="143.197" cy="76.205" rx="31.7207" ry="32.9281" fill="#D6F050" />
+        <ellipse cx="195.761" cy="96.9023" rx="8.15676" ry="8.46723" fill="#D6F050" />
+        <ellipse cx="214.795" cy="114.778" rx="10.8757" ry="11.2896" fill="#D6F050" />
+        <ellipse cx="326.27" cy="96.9026" rx="5.43784" ry="5.64482" fill="#D6F050" />
+        <ellipse cx="460.405" cy="56.448" rx="5.43784" ry="5.64482" fill="#D6F050" />
+        <ellipse cx="245.157" cy="99.2548" rx="6.7973" ry="7.05603" fill="#D6F050" />
+        <ellipse cx="307.691" cy="126.538" rx="6.7973" ry="7.05603" fill="#D6F050" />
+        <ellipse cx="276.423" cy="107.251" rx="18.1261" ry="18.8161" fill="#D6F050" />
+        <ellipse cx="402.854" cy="63.5038" rx="14.0477" ry="14.5825" fill="#D6F050" />
+        <ellipse cx="353.459" cy="62.093" rx="21.7514" ry="22.5793" fill="#D6F050" />
+      </svg> -->
+      <img src="{%static 'images/dots-purple-bg.svg' %}" alt="" class="purple-bg-dots">
     </div>
-  </div> 
-  <div class="third-half-of-body" id="home-soundwave-marley"></div> 
-</div>
+    <div class="second-half-of-body">
+      <div class="second-half-of-body-text">
+        <h3>Start your listening journey with us.</h3>
+        <h5>Discover GA's best community of playlists and songs</h5>
+      </div>
+    </div>
+    <div class="third-half-of-body" id="signup-soundwave-marley"></div>
+  </div>
 
-<div class="col-2">
-  <div class="signup-container"> 
-    <div class="signup-title-div">Sign Up</div>
-    <p class="red-text">{{ error_message }}</p>
-    <div class="signup-input-field-container">
-      <form class="signup-form" action="{% url 'signup' %}" method="POST">
-        {% csrf_token %}
-        {{ form.as_p }}
-        <button type="submit" class="signup-btn">Sign Up</button>
-      </form>
+  <div class="half">
+    <div class="signup-container">
+      <div class="signup-title-div">Sign Up</div>
+      <p class="red-text">{{ error_message }}</p>
+      <div class="signup-input-field-container">
+        <form class="signup-form" action="{% url 'signup' %}" method="POST">
+          {% csrf_token %}
+          {{ form.as_p }}
+          <button type="submit" class="signup-btn">Sign Up</button>
+        </form>
+      </div>
     </div>
   </div>
-</div>
 
 </div>
 
+<script src="{% static 'js/signup.js' %}"> </script>
 
 
 

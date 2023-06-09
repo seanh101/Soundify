@@ -1,19 +1,15 @@
 // Based on The Coding Train: Coding Challenge #136.1: Polar Perlin Noise Loops
 // https://www.youtube.com/watch?v=ZI1dmHv3MeM
+
 let phase = 0;
 let noiseMax = 1;
 let slider;
 let zOff = 0;
-let canvasY = window.innerHeight * .64;
+let marley = true;
 
 function setup() {
-    let canvasLogin = createCanvas(600, canvasY);
-    canvasLogin.parent("home-soundwave");
-
-    // let canvasHome = createCanvas(600, 200);
-    // canvasHome.parent("home-soundwave");
-
-
+    let canvasSignup = createCanvas(600, 200);
+    canvasSignup.parent("signup-soundwave-marley");
 
     background("#e9e0f0");
 
@@ -24,7 +20,8 @@ function setup() {
 function draw() {
     //noLoop();
     background("#9B71F6");
-    translate(width / 2, height * 0.8);
+
+    translate(width / 2, height / 32);
 
     //stroke(255);
     stroke("#D6F050");
@@ -42,7 +39,7 @@ function draw() {
             let xOff = map(cos(a + phase), -1, 20, 0, noiseMax);
             let yOff = map(sin(a + phase), -1, 0.5, 0, noiseMax);
             let r = map(noise(xOff, yOff, zOff * .5), 0, 1, 100, 200) * (i * 0.1);
-            let x = r * 4 * cos(a);
+            let x = r * PI * cos(a);
             let y = r * 2 * sin(a);
             vertex(x, y);
             // xOff = xOff + 0.01
@@ -53,5 +50,6 @@ function draw() {
     zOff += 0.1;
     //  xOff = xOff + 0.01
 }
+
 
 

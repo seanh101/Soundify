@@ -63,10 +63,10 @@
     gap: var(--gap);
     height: fit-content;
     min-height: 215px;
- 
+
     overflow-x: hidden;
     overflow-y: auto;
-    
+
 }
 
 .pl-info {
@@ -376,23 +376,23 @@ td a:hover {
     height: fit-content;
     overflow: auto;
     visibility: hidden;
-  }
-  
-  .scrollbox-content,
-  .scrollbox:hover,
-  .scrollbox:focus {
-    visibility: visible;
-  }
-  
-  .scrollbox_delayed {
-    transition: visibility 0.2s ease;
-  }
-  
-  .scrollbox_delayed:hover {
-    transition: visibility 0s 0.2s ease;
-  }
+}
 
-  .pl-edit-form {
+.scrollbox-content,
+.scrollbox:hover,
+.scrollbox:focus {
+    visibility: visible;
+}
+
+.scrollbox_delayed {
+    transition: visibility 0.2s ease;
+}
+
+.scrollbox_delayed:hover {
+    transition: visibility 0s 0.2s ease;
+}
+
+.pl-edit-form {
     width: 100%;
     display: flex;
     flex-direction: row;
@@ -400,39 +400,40 @@ td a:hover {
     gap: var(--gap);
     height: fit-content;
     min-height: 215px;
- 
+
     overflow-x: hidden;
     overflow-y: auto;
 
-  }
+}
 
-  .home-bg {
+.home-bg {
     position: absolute;
     left: 0;
     right: 0;
     bottom: 0;
     top: 0;
     width: 100vw;
-    height: 100vh;
+    height: calc(100vh - var(--header-height));
     margin-top: var(--header-height);
- 
+
 }
 
 div.one {
     display: grid;
     grid-template-columns: repeat(3, 1fr);
-    height: 550px;
+    height: 92.5%;
+    ;
 }
 
 div.two {
-    height: 600px;
+    height: 8%;
     display: grid;
-    grid-template-columns: 150px auto 250px;;
+    grid-template-columns: 150px auto 250px;
+    overflow: hidden;
 
 }
 
-.col-1 
-{
+.col-1 {
     grid-column: 1/2;
     overflow: hidden;
 
@@ -445,8 +446,13 @@ div.two {
     grid-column: 2/4;
 }
 
-div.row-1 {
+.one .col-2 {
+    display: flex;
+    justify-content: center;
+    align-items: center;
 }
+
+div.row-1 {}
 
 div.row-2 {
     display: grid;
@@ -459,7 +465,7 @@ div.row-2 {
 }
 
 .home {
-    width:100%;
+    width: 100%;
     height: 100%;
 }
 
@@ -473,14 +479,53 @@ div.moving-bar {
 }
 
 .home-title {
-    font-size: 80px;
+    /* font-size: 70px; */
     font-weight: 700;
     color: var(--black);
+    padding-left: 10%;
+    max-width: 600px;
 }
 
 .home-subtitle {
     color: var(--black);
     font-weight: 300;
-    font-size: 30px;
+    font-size: 44px;
+    padding-left: 42%;
+    line-height: 1.25;
+    margin: 0;
 
+}
+
+input {
+    background: rgba(0, 0, 0, 0);
+    border: 0;
+    border-bottom: 1px solid grey;
+    width: 100%;
+    max-width: 600px;
+    height: 2rem;
+    transition: all 0.2s ease;
+}
+
+input:focus {
+    background: var(--neon-highlight);
+    outline: none;
+}
+
+.col-2-content {
+    height: 80%;
+    width: 90%;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-evenly;
+    background: var(--white);
+}
+
+.col-2-content p {
+    padding-left: 50%;
+    margin: 1.5rem;
+
+}
+
+canvas {
+    overflow:visible;
 }

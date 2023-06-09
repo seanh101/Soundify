@@ -1,9 +1,9 @@
 <svg width="503" height="157" viewBox="0 0 503 157" fill="none" xmlns="http://www.w3.org/2000/svg">
-<path d="M0 20C0 8.95431 8.95431 0 20 0H483C494.046 0 503 8.95431 503 20V156.173H0V20Z" fill="#8550F7"/>
+<rect width="503" height="156.173" fill="#8550F7"/>
 <ellipse cx="43.5035" cy="23.5197" rx="9.96937" ry="10.3488" fill="#D6F050"/>
 <ellipse cx="92.4432" cy="27.283" rx="13.5946" ry="14.1121" fill="#D6F050"/>
 <mask id="mask0_142_1703" style="mask-type:alpha" maskUnits="userSpaceOnUse" x="0" y="0" width="503" height="157">
-<path d="M0 20C0 8.95431 8.95431 0 20 0H483C494.046 0 503 8.95431 503 20V156.173H0V20Z" fill="#D6F050"/>
+<rect width="503" height="156.173" fill="#D6F050"/>
 </mask>
 <g mask="url(#mask0_142_1703)">
 <ellipse cx="530.189" cy="6.58556" rx="41.6901" ry="43.277" fill="#D6F050"/>
