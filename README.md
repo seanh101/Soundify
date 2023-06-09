@@ -4,7 +4,7 @@ Screenshots
 
   ![Home](./images/Soundify_homepage.png)
   ![Login](./images/Soundify_login.png)
-  ![About](./images/Soundify_about.png)
+  ![About](./images/Soundify-about-1.png)
   ![Title](./images/Title_logo.png)
 
 
