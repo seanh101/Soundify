@@ -249,3 +249,6 @@ def play_song(request):
     # track_id = song.track_id
     # sp.start_playback(uris=[track_id])
     # return redirect('songs_detail', song_id=song_id)
+
+def spotify_player(request):
+    return render(request, 'player.html')

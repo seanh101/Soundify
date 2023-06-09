@@ -1,6 +1,11 @@
 # Soundify
 
-https://vscode.dev/github/chasehils/Soundify/blob/main/images/Untitled%202.jpg
+Screenshots
+
+  ![Home Page](https://vscode.dev/github/chasehils/Soundify/blob/main/images/Untitled%202.jpg)
+  ![Login Page](/Users/chasehilsinger/SEI/projects/group_project/Soundify/images/login_page.jpg)
+  ![Soundify Player]()
+  ![Soundify Playlist]()
 
 Soundify - Turn on the sound
 
@@ -42,7 +47,15 @@ Technologies used:
 
 
 
-/Users/chasehilsinger/SEI/projects/group_project/Soundify/images/login_page.jpg
+Getting Started:
+  ![Click to View Project Planning](https://trello.com/b/tzhmkpLU/project-3-soundify)
+  ![Click to go to Soundify]()
 
+Next Steps:
+  - Customize the playlist to show which song is being
+    played while being highlighted or show a speaker beside the track
+  - Add the ability to see other users playlists
+  - Share songs with other users
+  - Share playlists with other users
 
 

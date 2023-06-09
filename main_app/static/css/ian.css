@@ -23,6 +23,9 @@ h1 {}
     gap: 25px;
 }
 
+.pl-card-details {
+    color: var(--purple-shadow);
+}
 .my-playlists {
     width: calc(100% - var(--side-nav-width) - var(--gap));
     display: flex;
@@ -59,7 +62,11 @@ h1 {}
 
 .pl-img {
     height: var(--pl-image-hw);
+    min-height: var(--pl-image-hw);
+    max-height: var(--pl-image-hw);
     width: var(--pl-image-hw);
+    min-width: var(--pl-image-hw);
+    max-width: var(--pl-image-hw);
 }
 
 .pl-info-title {
@@ -128,7 +135,6 @@ table {
 
 .song-list-table tbody td:last-child {
     color: var(--purple-shadow);
-
 }
 
 .song-list-table tbody td:first-child {
@@ -188,7 +194,7 @@ th {
 .pl-info-edit {
     position: absolute;
     z-index: 2;
-    top: 0.25rem;
+    top: 0rem;
     right: 1rem;
     width: 28px;
     height: 1rem;
@@ -273,7 +279,7 @@ a.light:hover {
 }
 
 a {
-    color: var(--black);
+    color: inherit;
 }
 
 td a:hover {
