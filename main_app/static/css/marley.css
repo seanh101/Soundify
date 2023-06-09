@@ -556,3 +556,7 @@ li::before {
 .ssearch-results-h5 {
     color: white;
 }
+
+.playlist-select, .player-previous, .player-stop, .player-play, .player-next, .player-toggle-play {
+    display: inline-block;
+}
