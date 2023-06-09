@@ -39,7 +39,6 @@ Users will log in to their account that the user has created to ensure privacy i
   - JS
   - Spotify API
   - PostgreSQL
-  - AWS S3
   - GitHub
   - Trello
   - Figma
