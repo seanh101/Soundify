@@ -329,6 +329,13 @@ td a:hover {
     height: 100%;
     background: var(--purple-main);
     position: relative;
+    overflow: hidden;
+}
+
+#home-soundwave canvas {
+    position: absolute;
+    bottom: 0;
+
 }
 
 ::-webkit-scrollbar {
