@@ -5,7 +5,7 @@ let noiseMax = 1;
 let slider;
 let zOff = 0;
 function setup() {
-    let canvasLogin = createCanvas(600, 200);
+    let canvasLogin = createCanvas(600, 100);
     canvasLogin.parent("home-soundwave-marley");
 
     background("#e9e0f0");
