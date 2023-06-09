@@ -2,10 +2,10 @@
 
 Screenshots
 
-  ![Home Page](https://vscode.dev/github/chasehils/Soundify/blob/main/images/Untitled%202.jpg)
-  ![Login Page](/Users/chasehilsinger/SEI/projects/group_project/Soundify/images/login_page.jpg)
-  ![Soundify Player]()
-  ![Soundify Playlist]()
+  ![Home](./images/Soundify_homepage.png)
+  ![Login](./images/login_page.jpg)
+  ![About](./images/Soundify_about.png)
+
 
 Soundify - Turn on the sound
 
