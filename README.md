@@ -3,7 +3,7 @@
 Screenshots
 
   ![Home](./images/Soundify_homepage.png)
-  ![Login](./images/login_page.jpg)
+  ![Login](./images/Soundify_login.png)
   ![About](./images/Soundify_about.png)
 
 
